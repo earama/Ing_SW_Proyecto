@@ -3,11 +3,11 @@
     "maps": [
         {
             "name": "Player",
-            "id": "316f48e6-d30b-4cd0-8437-2df08aa3a9d6",
+            "id": "59c08c2f-c690-4af3-bd51-378f393beeb8",
             "actions": [
                 {
                     "name": "Movement",
-                    "id": "212e974b-8771-4b53-9514-8f00d24136e7",
+                    "id": "ddd96f90-4322-41aa-99b3-74176c0d0db4",
                     "expectedControlLayout": "",
                     "continuous": false,
                     "passThrough": false,
@@ -18,7 +18,7 @@
                 },
                 {
                     "name": "Shoot",
-                    "id": "9ce50980-a0d9-4b3c-9edb-76904f814ea3",
+                    "id": "7e1e0891-41eb-4c73-93e2-38bb76620e9d",
                     "expectedControlLayout": "",
                     "continuous": false,
                     "passThrough": false,
@@ -30,8 +30,8 @@
             ],
             "bindings": [
                 {
-                    "name": "Arrows",
-                    "id": "7807c89c-c7b5-4666-89dc-a3f4321645a1",
+                    "name": "2D Vector",
+                    "id": "b24fb194-9472-48e2-bc67-112982e77b8e",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -43,11 +43,11 @@
                 },
                 {
                     "name": "up",
-                    "id": "a977bc52-34d2-4fba-ab38-27b3ec96cb4d",
-                    "path": "<Keyboard>/upArrow",
+                    "id": "16c9717d-3c86-4f39-908b-feaad4a919ff",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Mouse and Keyboard",
+                    "groups": ";KeyboardMouse",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true,
@@ -55,11 +55,11 @@
                 },
                 {
                     "name": "down",
-                    "id": "5f1a202c-31c0-4ae8-bdff-b23b3427e12c",
-                    "path": "<Keyboard>/downArrow",
+                    "id": "ffa14080-f67b-4704-bf0b-782e28ba79a7",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Mouse and Keyboard",
+                    "groups": ";KeyboardMouse",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true,
@@ -67,11 +67,11 @@
                 },
                 {
                     "name": "left",
-                    "id": "f27614ec-0d51-489f-a9b2-b606b746a43d",
-                    "path": "<Keyboard>/leftAlt",
+                    "id": "a60a0470-811d-4adc-b805-9ee9e3359e9d",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Mouse and Keyboard",
+                    "groups": ";KeyboardMouse",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true,
@@ -79,11 +79,11 @@
                 },
                 {
                     "name": "right",
-                    "id": "407e60ab-7274-45e1-84d1-76547fbd4927",
-                    "path": "<Keyboard>/rightAlt",
+                    "id": "e08e791f-e2c1-4b22-bb8a-555ffd7c9c0b",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Mouse and Keyboard",
+                    "groups": ";KeyboardMouse",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true,
@@ -91,23 +91,11 @@
                 },
                 {
                     "name": "",
-                    "id": "e1ab16dd-3f06-4d9c-bd46-83fdac04ee4c",
+                    "id": "c2dc5dc4-8acd-4622-abde-b44f3b293ca9",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Mouse and Keyboard",
-                    "action": "Shoot",
-                    "isComposite": false,
-                    "isPartOfComposite": false,
-                    "modifiers": ""
-                },
-                {
-                    "name": "",
-                    "id": "070422d9-52a0-4209-acfc-d7d2e5f7e36b",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Mouse and Keyboard",
+                    "groups": ";KeyboardMouse",
                     "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false,
@@ -118,9 +106,9 @@
     ],
     "controlSchemes": [
         {
-            "name": "Mouse and Keyboard",
+            "name": "KeyboardMouse",
             "basedOn": "",
-            "bindingGroup": "Mouse and Keyboard",
+            "bindingGroup": "KeyboardMouse",
             "devices": [
                 {
                     "devicePath": "<Mouse>",

@@ -229,6 +229,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e253776ea24ba1f428daeb2afca7db75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 3
+  playerControls: {fileID: -944628639613478452, guid: 0328d56488b97cc46a5baadacc791789,
+    type: 3}
 --- !u!212 &1025516463
 SpriteRenderer:
   m_ObjectHideFlags: 0

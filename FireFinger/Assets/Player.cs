@@ -1,29 +1,55 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-
 public class Player : MonoBehaviour
 {
-    public InputMaster controls;
+    
+    [SerializeField] public float movementSpeed = 3;
+    private InputAction movement;
+    public InputActionAsset playerControls;
 
-    private void Awake() 
+    private Animator _animator;
+
+    private void Awake()
     {
-        controls.Player.Shoot.performed += ctx => Shoot();
+        _animator = GetComponent<Animator>();
+        var gameplayActionMap = playerControls.GetActionMap("Player");
+        movement = gameplayActionMap.GetAction("Movement");
+        movement.performed += OnMovementChanged;
     }
 
-    void Shoot ()
+    private void OnMovementChanged(InputAction.CallbackContext context)
     {
-        Debug.Log("We shot!");
+        var direction = context.ReadValue<Vector2>();
+
+        Direction = new Vector3(direction.x, direction.y, 0);
     }
 
-    private void OnEnable() {
-        controls.Enable();
+    private void FixedUpdate()
+    {
+
+        if (!IsMoving) return;
+
+        transform.position += Direction * movementSpeed * Time.deltaTime;
     }
-    private void OnDisable() {
-        controls.Disable();
+
+    private bool IsMoving => Direction != Vector3.zero;
+    private Vector3 Direction { get; set; }
+
+
+
+    private void OnDisable()
+    {
+        movement.Disable();
     }
+
+    private void OnEnable()
+    {
+        movement.Enable();
+    }
+
+    
 }
