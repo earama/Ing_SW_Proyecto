@@ -1,35 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Utilities;
 
 public class Player : MonoBehaviour
 {
     
     [SerializeField] private float movementSpeed = 3;
-    private InputAction movement;
-    [SerializeField] private  InputActionAsset playerControls;
+    private  InputMaster playerControls;
 
     private void Awake()
     {
-        var gameplayActionMap = playerControls.GetActionMap("Player");
-        movement = gameplayActionMap.GetAction("Movement");
-        movement.performed += OnMovementChanged;
+        playerControls = new InputMaster();
+        playerControls.Player.Movement.performed += ctx => OnMovement(ctx.ReadValue<Vector2>());
     }
 
-    private void OnMovementChanged(InputAction.CallbackContext context)
+    private void OnMovement(Vector2 direction)
     {
-        var direction = context.ReadValue<Vector2>();
-
         Direction = new Vector3(direction.x, direction.y, 0);
+        // Debug.Log(direction.x+":"+direction.y);
     }
 
     private void FixedUpdate()
     {
-
         if (!IsMoving) return;
-
         transform.position += Direction * movementSpeed * Time.deltaTime;
     }
 
@@ -38,12 +31,12 @@ public class Player : MonoBehaviour
 
     private void OnDisable()
     {
-        movement.Disable();
+        playerControls.Disable();
     }
 
     private void OnEnable()
     {
-        movement.Enable();
+        playerControls.Enable();
     }
 
     

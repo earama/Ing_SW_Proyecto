@@ -3,22 +3,11 @@
     "maps": [
         {
             "name": "Player",
-            "id": "59c08c2f-c690-4af3-bd51-378f393beeb8",
+            "id": "2611420d-da89-4d16-8de4-e3418f5d9616",
             "actions": [
                 {
                     "name": "Movement",
-                    "id": "ddd96f90-4322-41aa-99b3-74176c0d0db4",
-                    "expectedControlLayout": "",
-                    "continuous": false,
-                    "passThrough": false,
-                    "initialStateCheck": false,
-                    "processors": "",
-                    "interactions": "",
-                    "bindings": []
-                },
-                {
-                    "name": "Shoot",
-                    "id": "7e1e0891-41eb-4c73-93e2-38bb76620e9d",
+                    "id": "d3fec8dd-8a9a-4dcc-a0bc-7ae5e96dae9f",
                     "expectedControlLayout": "",
                     "continuous": false,
                     "passThrough": false,
@@ -31,7 +20,7 @@
             "bindings": [
                 {
                     "name": "2D Vector",
-                    "id": "b24fb194-9472-48e2-bc67-112982e77b8e",
+                    "id": "d83ea4c5-c613-4500-9742-e820b22b9957",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -43,11 +32,11 @@
                 },
                 {
                     "name": "up",
-                    "id": "16c9717d-3c86-4f39-908b-feaad4a919ff",
+                    "id": "c4a13ebc-d0be-47b9-a00c-8178b0a4557d",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";KeyboardMouse",
+                    "groups": ";MouseKeyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true,
@@ -55,11 +44,11 @@
                 },
                 {
                     "name": "down",
-                    "id": "ffa14080-f67b-4704-bf0b-782e28ba79a7",
+                    "id": "2a19f983-626c-4cf6-a691-5af9ba00621c",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";KeyboardMouse",
+                    "groups": ";MouseKeyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true,
@@ -67,11 +56,11 @@
                 },
                 {
                     "name": "left",
-                    "id": "a60a0470-811d-4adc-b805-9ee9e3359e9d",
+                    "id": "572440fe-98c3-40a6-bad0-5a709b4ce3fd",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";KeyboardMouse",
+                    "groups": ";MouseKeyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true,
@@ -79,11 +68,11 @@
                 },
                 {
                     "name": "right",
-                    "id": "e08e791f-e2c1-4b22-bb8a-555ffd7c9c0b",
+                    "id": "6f0777fb-221e-499e-a52c-be5ed3baf704",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";KeyboardMouse",
+                    "groups": ";MouseKeyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true,
@@ -91,12 +80,12 @@
                 },
                 {
                     "name": "",
-                    "id": "c2dc5dc4-8acd-4622-abde-b44f3b293ca9",
-                    "path": "<Mouse>/leftButton",
+                    "id": "1632a472-def8-417f-97d3-dd04270cf745",
+                    "path": "<Touchscreen>/touch",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";KeyboardMouse",
-                    "action": "Shoot",
+                    "groups": "Touch",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": false,
                     "modifiers": ""
@@ -106,9 +95,9 @@
     ],
     "controlSchemes": [
         {
-            "name": "KeyboardMouse",
+            "name": "MouseKeyboard",
             "basedOn": "",
-            "bindingGroup": "KeyboardMouse",
+            "bindingGroup": "MouseKeyboard",
             "devices": [
                 {
                     "devicePath": "<Mouse>",
@@ -117,6 +106,18 @@
                 },
                 {
                     "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Touch",
+            "basedOn": "",
+            "bindingGroup": "Touch",
+            "devices": [
+                {
+                    "devicePath": "<Touchscreen>",
                     "isOptional": false,
                     "isOR": false
                 }
