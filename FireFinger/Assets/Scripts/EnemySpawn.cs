@@ -24,6 +24,6 @@ public class EnemySpawn : MonoBehaviour
     private void spawnEnemy()
     {
         GameObject a = Instantiate(enemyPrefab) as GameObject;
-        a.transform.position = new Vector2(Random.Range(-screenBounds.x, screenBounds.x), Random.Range(-screenBounds.y, screenBounds.y));
+        a.transform.position = new Vector2(Random.Range(-screenBounds.x, screenBounds.x) , Random.Range(-screenBounds.y, screenBounds.y));
     }
 }
