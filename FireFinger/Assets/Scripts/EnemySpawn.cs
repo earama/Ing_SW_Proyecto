@@ -24,6 +24,24 @@ public class EnemySpawn : MonoBehaviour
     private void spawnEnemy()
     {
         GameObject a = Instantiate(enemyPrefab) as GameObject;
-        a.transform.position = new Vector2(Random.Range(-screenBounds.x, screenBounds.x), Random.Range(-screenBounds.y, screenBounds.y));
+        // cual borde
+        var ran = Random.Range(1,4);
+        float posx = 0;
+        float posy = 0;
+        if (ran == 1) { // Borde izquierdo
+            posx = -screenBounds.x;
+        } else if (ran == 2) { // Borde derecho
+            posx = screenBounds.x;
+        } else if (ran == 3) { // Borde arriba
+            posy = screenBounds.y;
+        } else { // Borde abajo
+            posy = -screenBounds.y;
+        }
+        if (ran < 3) { // Borde izquierdo o derecho
+            posy = Random.Range(-screenBounds.y, screenBounds.y);
+        } else { // Borde arriba o abajo
+            posx = Random.Range(-screenBounds.x, screenBounds.x);
+        }
+        a.transform.position = new Vector2(posx, posy);
     }
 }

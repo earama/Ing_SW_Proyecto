@@ -42,6 +42,7 @@ namespace Tests
             MonoBehaviour.Instantiate(Resources.Load<GameObject>("Background"));
             MonoBehaviour.Instantiate(Resources.Load<GameObject>("Enemy"));
             MonoBehaviour.Instantiate(Resources.Load<GameObject>("Main Camera"));
+            MonoBehaviour.Instantiate(Resources.Load<GameObject>("Canvas"));
         }
 
     }

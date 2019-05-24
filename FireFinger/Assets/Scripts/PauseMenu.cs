@@ -17,7 +17,8 @@ public class PauseMenu : MonoBehaviour
     void Start() 
     {
         Pause();
-        playerPosition.Set(-Player.transform.position.x + 768, -Player.transform.position.y + 1024);
+        RectTransform objectRectTransform = gameObject.GetComponent<RectTransform> ();
+        playerPosition.Set(objectRectTransform.rect.width/2, objectRectTransform.rect.height/2);
     }
     // Update is called once per frame
     void Update()
@@ -58,9 +59,9 @@ public class PauseMenu : MonoBehaviour
         if(uiMovido)
         {
             uiMovido = false;
-            pos1.y =(pos1.y*offset);
+            pos1.y =(pos1.y*-1);
             VolumeButton.transform.position = pos1;
-            pos2.y = (pos2.y*offset);
+            pos2.y = (pos2.y*-1);
             MenuButton.transform.position = pos2;
         }
     }
@@ -74,12 +75,12 @@ public class PauseMenu : MonoBehaviour
         RectTransform objectRectTransform = gameObject.GetComponent<RectTransform> ();
         if(Input.touchCount > 0)
         {
-            if(Input.GetTouch(0).position.y >=  objectRectTransform.rect.height )
+            if(Input.GetTouch(0).position.y >=  objectRectTransform.rect.height/2 )
             {
                 uiMovido = true;
-                pos1.y =(pos1.y/offset);
+                pos1.y =(pos1.y*-1);
                 VolumeButton.transform.position = pos1;
-                pos2.y = (pos2.y/offset);
+                pos2.y = (pos2.y*-1);
                 MenuButton.transform.position = pos2;
             }
         }
