@@ -6,27 +6,26 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused = true;
     public GameObject pauseMenuUI;
-    public GameObject Canvas;
     public GameObject MenuButton;
     public GameObject VolumeButton;
     private Vector2 playerPosition;
     public GameObject Player;
     private bool uiMovido = false;
-    public int offset;
 
     void Start() 
     {
-        Pause();
         RectTransform objectRectTransform = gameObject.GetComponent<RectTransform> ();
+        Pause();
         playerPosition.Set(objectRectTransform.rect.width/2, objectRectTransform.rect.height/2);
+
     }
     // Update is called once per frame
     void Update()
     {
-        // Debug.Log(playerPosition);
         if(Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
+            
             if (touch.phase == TouchPhase.Ended && !gameIsPaused)
             {
                 playerPosition.Set(touch.position.x, touch.position.y);
