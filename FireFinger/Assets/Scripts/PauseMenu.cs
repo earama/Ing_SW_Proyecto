@@ -6,26 +6,26 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused = true;
     public GameObject pauseMenuUI;
-    public GameObject Canvas;
     public GameObject MenuButton;
     public GameObject VolumeButton;
     private Vector2 playerPosition;
     public GameObject Player;
     private bool uiMovido = false;
-    public int offset;
 
     void Start() 
     {
+        RectTransform objectRectTransform = gameObject.GetComponent<RectTransform> ();
         Pause();
-        playerPosition.Set(-Player.transform.position.x + 768, -Player.transform.position.y + 1024);
+        playerPosition.Set(objectRectTransform.rect.width/2, objectRectTransform.rect.height/2);
+
     }
     // Update is called once per frame
     void Update()
     {
-        // Debug.Log(playerPosition);
         if(Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
+            
             if (touch.phase == TouchPhase.Ended && !gameIsPaused)
             {
                 playerPosition.Set(touch.position.x, touch.position.y);
@@ -58,9 +58,9 @@ public class PauseMenu : MonoBehaviour
         if(uiMovido)
         {
             uiMovido = false;
-            pos1.y =(pos1.y*offset);
+            pos1.y =(pos1.y)*-1;
             VolumeButton.transform.position = pos1;
-            pos2.y = (pos2.y*offset);
+            pos2.y = (pos2.y)*-1;
             MenuButton.transform.position = pos2;
         }
     }
@@ -74,12 +74,12 @@ public class PauseMenu : MonoBehaviour
         RectTransform objectRectTransform = gameObject.GetComponent<RectTransform> ();
         if(Input.touchCount > 0)
         {
-            if(Input.GetTouch(0).position.y >=  objectRectTransform.rect.height )
+            if(Input.GetTouch(0).position.y >=  objectRectTransform.rect.height/2 )
             {
                 uiMovido = true;
-                pos1.y =(pos1.y/offset);
+                pos1.y =(pos1.y)*-1;
                 VolumeButton.transform.position = pos1;
-                pos2.y = (pos2.y/offset);
+                pos2.y = (pos2.y)*-1;
                 MenuButton.transform.position = pos2;
             }
         }
