@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &534385138547876016
+--- !u!1 &7071985702501330867
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 534385138547875982}
-  - component: {fileID: 534385138547876017}
-  - component: {fileID: 534385138547875983}
-  - component: {fileID: 534385138547875980}
-  - component: {fileID: 534385138547875981}
+  - component: {fileID: 7071985702501330870}
+  - component: {fileID: 7071985702501330871}
+  - component: {fileID: 7071985702501330868}
+  - component: {fileID: 7071985702501330869}
+  - component: {fileID: 7071985702501330866}
+  - component: {fileID: -6124056219566225085}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -20,27 +21,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &534385138547875982
+--- !u!4 &7071985702501330870
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534385138547876016}
+  m_GameObject: {fileID: 7071985702501330867}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.6666667, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &534385138547876017
+--- !u!212 &7071985702501330871
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534385138547876016}
+  m_GameObject: {fileID: 7071985702501330867}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -82,40 +83,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &534385138547875983
+--- !u!114 &7071985702501330868
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534385138547876016}
+  m_GameObject: {fileID: 7071985702501330867}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c311e7fedacb1d42b21d945b391433c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  target: {fileID: 0}
---- !u!114 &534385138547875980
+  speed: 2
+  target: {fileID: 2085277584485513434, guid: a69005bbf52bfcd4e975ca4615c402c2, type: 3}
+--- !u!114 &7071985702501330869
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534385138547876016}
+  m_GameObject: {fileID: 7071985702501330867}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51660967cff2ad641a7c975866fd79fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
---- !u!60 &534385138547875981
+--- !u!60 &7071985702501330866
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534385138547876016}
+  m_GameObject: {fileID: 7071985702501330867}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -203,3 +204,24 @@ PolygonCollider2D:
       - {x: -0.5747804, y: 0.26679575}
       - {x: -0.5947804, y: 0.26679575}
       - {x: -0.6247804, y: 0.22679576}
+--- !u!50 &-6124056219566225085
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7071985702501330867}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

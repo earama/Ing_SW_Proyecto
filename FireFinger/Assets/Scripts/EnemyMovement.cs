@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update() 
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed* Time.deltaTime);
+        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = Vector2.MoveTowards(transform.position, direction, speed* Time.deltaTime);
     }
 }
