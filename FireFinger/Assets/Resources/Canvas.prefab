@@ -286,6 +286,7 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 1993817916736356873}
   MenuButton: {fileID: 1993817916597107032}
   VolumeButton: {fileID: 1993817916224683466}
+  PlayButton: {fileID: 0}
   Player: {fileID: 0}
 --- !u!212 &1993817915763161495
 SpriteRenderer:
