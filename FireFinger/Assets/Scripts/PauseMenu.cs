@@ -8,7 +8,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject MenuButton;
     public GameObject VolumeButton;
-    private Vector2 playerPosition;
+    public GameObject PlayButton;
+    public Vector2 playerPosition;
     public GameObject Player;
     private bool uiMovido = false;
 
@@ -29,8 +30,15 @@ public class PauseMenu : MonoBehaviour
             if (touch.phase == TouchPhase.Ended && !gameIsPaused)
             {
                 playerPosition.Set(touch.position.x, touch.position.y);
+                PlayButton.transform.position.Set(playerPosition.x,playerPosition.y,PlayButton.transform.position.z);
+                //PlayButton.GetComponent<RectTransform>().localPosition.Set(playerPosition.x,playerPosition.y,PlayButton.GetComponent<RectTransform>().localPosition.z);
+                PlayButton.GetComponent<RectTransform>().anchoredPosition = mappingJuegoACanvas(playerPosition);
+                
+                //playerPosition.Set(Player.GetComponent<Rigidbody2D>().position.x,Player.GetComponent<Rigidbody2D>().position.y);
                 if (!gameIsPaused)
                 {
+                    //while(playerPosition != touch.position){ }
+                    
                     Pause();
                 }
             }
@@ -82,6 +90,13 @@ public class PauseMenu : MonoBehaviour
                 pos2.y = (pos2.y*-1);
                 MenuButton.transform.position = pos2;
             }
+            
         }
+    }
+ 
+    Vector2 mappingJuegoACanvas(Vector2 coordJuego)
+    {
+        RectTransform objectRectTransform = gameObject.GetComponent<RectTransform> ();
+        return new Vector2(coordJuego.x-objectRectTransform.rect.width/2,coordJuego.y-objectRectTransform.rect.height/2);
     }
 }
