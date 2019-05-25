@@ -45,3 +45,9 @@ TagManager:
   - name: Entidades
     uniqueID: 2312755829
     locked: 0
+  - name: UI
+    uniqueID: 2529319273
+    locked: 0
+  - name: Fondo
+    uniqueID: 3829364229
+    locked: 0
