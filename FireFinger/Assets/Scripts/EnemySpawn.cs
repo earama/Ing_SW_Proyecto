@@ -16,8 +16,10 @@ public class EnemySpawn : MonoBehaviour
 
     IEnumerator enemyWave()
     {
-        do{
+        do
+        {
             yield return new WaitForSeconds(respawnTime);
+            FindObjectOfType<AudioManager>().Play("EnemySpawn");
             spawnEnemy();
         }while(true);
     }
