@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7071985702501330869}
   - component: {fileID: 7071985702501330866}
   - component: {fileID: -6124056219566225085}
+  - component: {fileID: 2946228166623225458}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -96,7 +97,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  target: {fileID: 2085277584485513434, guid: a69005bbf52bfcd4e975ca4615c402c2, type: 3}
 --- !u!114 &7071985702501330869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -225,3 +225,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2946228166623225458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7071985702501330867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e27df339228bff40bb1e549ff72e8a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
+  deathEffect: {fileID: 1352129710448242964, guid: 971ea2400f37d874f9e8e1099d64dc91,
+    type: 3}

@@ -7,6 +7,7 @@ public class EnemySpawn : MonoBehaviour
     public GameObject enemyPrefab;
     public float respawnTime = 1.0f;
     private Vector2 screenBounds;
+    
     // Start is called before the first frame update
     void Start()
     {
