@@ -14,7 +14,6 @@ public class Projectile : MonoBehaviour
     private bool firstUpdate;
     private GameObject blaster;
 
-    // Start is called before the first frame update
     private void Start() 
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
@@ -26,25 +25,16 @@ public class Projectile : MonoBehaviour
     }
     void Update()
     {  
-        
-        //rb.velocity = transform.up * speed;
         if(firstUpdate){
             position = player.transform.position;
             prevPosition = blaster.GetComponent<Blaster>().previousPosition;
             firstUpdate = false;
         }
-        /* if(position = prevPosition){
-            firstUpdate = true;
-            //rb.velocity = transform.up * speed;
-        }*/
-        
-        rb.velocity = Vector3.MoveTowards(position, prevPosition, 1).normalized*-10;
-        //rb.velocity = Vector3.MoveTowards(position, prevPosition, speed*Time.deltaTime);
-        if(transform.position.x >= screenBounds.x || transform.position.y >= screenBounds.y)
+        if(transform.position.x >= screenBounds.x || transform.position.x <= -screenBounds.x || transform.position.y >= screenBounds.y || transform.position.y <= -screenBounds.y)
         {
             gameObject.SetActive(false);
         }
-        //prevPosition = position;
+        rb.velocity = Vector3.MoveTowards(position, prevPosition, 1).normalized*-10;
     }
     
     void OnTriggerEnter2D(Collider2D hitInfo) 
@@ -52,16 +42,12 @@ public class Projectile : MonoBehaviour
         Enemy enemy = hitInfo.GetComponent<Enemy>();
         if (enemy != null)
         {
-            
-           
             enemy.TakeDamage(damage);
             gameObject.SetActive(false);
         }
-        
-     
     }
 
-    void OnDisable()
+    void OnEnable()
     {
         firstUpdate = true;
     }

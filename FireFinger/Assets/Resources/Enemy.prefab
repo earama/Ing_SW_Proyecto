@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 7071985702501330868}
   - component: {fileID: 7071985702501330869}
   - component: {fileID: 7071985702501330866}
-  - component: {fileID: -6124056219566225085}
   - component: {fileID: 2946228166623225458}
+  - component: {fileID: 8148983374712197339}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,7 +119,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 7071985702501330867}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 49b20bdc9fce0bc4bb1491949b2ef939, type: 2}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -204,7 +204,22 @@ PolygonCollider2D:
       - {x: -0.5747804, y: 0.26679575}
       - {x: -0.5947804, y: 0.26679575}
       - {x: -0.6247804, y: 0.22679576}
---- !u!50 &-6124056219566225085
+--- !u!114 &2946228166623225458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7071985702501330867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e27df339228bff40bb1e549ff72e8a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
+  deathEffect: {fileID: 1352129710448242964, guid: 971ea2400f37d874f9e8e1099d64dc91,
+    type: 3}
+--- !u!50 &8148983374712197339
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -223,20 +238,5 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &2946228166623225458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7071985702501330867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e27df339228bff40bb1e549ff72e8a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 50
-  deathEffect: {fileID: 1352129710448242964, guid: 971ea2400f37d874f9e8e1099d64dc91,
-    type: 3}

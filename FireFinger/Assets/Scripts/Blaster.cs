@@ -14,50 +14,26 @@ public class Blaster : MonoBehaviour
     private bool firstUpdate;
     public Vector3 direccion;
 
-    // Start is called before the first frame update
     void Start()
     {
         objectPooler = ObjectPooler.Instance;
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         previousPosition = transform.position;
         frameCounter = 0;
-        numFramesTillShoot = 3;
+        numFramesTillShoot = 2;
         speed = 3;
         direccion = Vector3.up;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if(previousPosition != transform.position){
-            //direccion = Vector3.up;
-            //firstUpdate = true;
             if(frameCounter >= numFramesTillShoot){
-                objectPooler.SpawnFromPool("Projectiles", transform.position, Quaternion.identity, previousPosition, speed);
-
-                
-                
+                objectPooler.SpawnFromPool("Projectiles", transform.position, Quaternion.identity);
                 frameCounter = 0;
         }
         frameCounter++;
-
-        } else {
-            //direccion = previousPosition;
-            //firstUpdate = false;
-        }
-        
+        } 
         previousPosition = transform.position;
-        //transform.rotation = Quaternion.LookRotation (previousPosition);
-        //objectPooler.SpawnFromPool("Projectiles", transform.position, Quaternion.identity);
-        
-
-
-    }
-    void Update() 
-    {
-    }
-    void OnEnable()
-    {
-        //Shooting logic
     }
 }

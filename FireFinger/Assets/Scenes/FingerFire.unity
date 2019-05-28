@@ -187,6 +187,12 @@ MonoBehaviour:
     pitch: 1.08
     source: {fileID: 0}
     loop: 0
+  - name: EnemyHit
+    clip: {fileID: 8300000, guid: 468625121f504d747aabc3af876073b8, type: 3}
+    volume: 1
+    pitch: 1.08
+    source: {fileID: 0}
+    loop: 0
 --- !u!4 &375258721
 Transform:
   m_ObjectHideFlags: 0
@@ -395,7 +401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 7071985702501330867, guid: 53700de296256dc41bcaf6139c7cec27,
     type: 3}
-  respawnTime: 2
+  respawnTime: 4
 --- !u!1 &1752558408
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,6 +436,7 @@ MonoBehaviour:
     prefab: {fileID: 2661919661786287959, guid: 0520876669e949c40900ac344e3f40d7,
       type: 3}
     size: 24
+  player: {fileID: 0}
 --- !u!4 &1752558410
 Transform:
   m_ObjectHideFlags: 0
@@ -531,6 +538,11 @@ PrefabInstance:
       propertyPath: objectPooler
       value: 
       objectReference: {fileID: 1752558409}
+    - target: {fileID: 376117633785576434, guid: a69005bbf52bfcd4e975ca4615c402c2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Blaster
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a69005bbf52bfcd4e975ca4615c402c2, type: 3}
 --- !u!1001 &1993817915961872658

@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        FindObjectOfType<AudioManager>().Play("ShootingProjectile");
+        FindObjectOfType<AudioManager>().Play("EnemyHit");
         if(health <= 0)
         {
             Die();
