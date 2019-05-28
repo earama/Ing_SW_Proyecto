@@ -581,12 +581,12 @@ PrefabInstance:
     - target: {fileID: 1686349767699146075, guid: a69005bbf52bfcd4e975ca4615c402c2,
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
-      value: 0.17112525
+      value: 0.47581273
       objectReference: {fileID: 0}
     - target: {fileID: 1686349767699146075, guid: a69005bbf52bfcd4e975ca4615c402c2,
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
-      value: 0.33842814
+      value: 0.5214726
       objectReference: {fileID: 0}
     - target: {fileID: 1686349767699146075, guid: a69005bbf52bfcd4e975ca4615c402c2,
         type: 3}
@@ -732,6 +732,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Parameters.colorGradient.m_NumAlphaKeys
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1686349767699146075, guid: a69005bbf52bfcd4e975ca4615c402c2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1686349767699146075, guid: a69005bbf52bfcd4e975ca4615c402c2,
+        type: 3}
+      propertyPath: m_Autodestruct
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1686349767699146075, guid: a69005bbf52bfcd4e975ca4615c402c2,
+        type: 3}
+      propertyPath: m_Parameters.widthMultiplier
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a69005bbf52bfcd4e975ca4615c402c2, type: 3}
