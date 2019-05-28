@@ -50,5 +50,7 @@ public class Projectile : MonoBehaviour
     void OnEnable()
     {
         firstUpdate = true;
+        FindObjectOfType<AudioManager>().Play("ShootingProjectile");
+
     }
 }
