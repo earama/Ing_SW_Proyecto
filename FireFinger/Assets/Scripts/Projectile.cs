@@ -30,6 +30,7 @@ public class Projectile : MonoBehaviour
         //rb.velocity = transform.up * speed;
         if(firstUpdate){
             position = player.transform.position;
+            prevPosition = blaster.GetComponent<Blaster>().previousPosition;
             firstUpdate = false;
         }
         /* if(position = prevPosition){
@@ -37,7 +38,7 @@ public class Projectile : MonoBehaviour
             //rb.velocity = transform.up * speed;
         }*/
         
-        rb.velocity = Vector3.MoveTowards(position, prevPosition*10, speed);
+        rb.velocity = Vector3.MoveTowards(position, prevPosition, 1).normalized*-10;
         //rb.velocity = Vector3.MoveTowards(position, prevPosition, speed*Time.deltaTime);
         if(transform.position.x >= screenBounds.x || transform.position.y >= screenBounds.y)
         {
