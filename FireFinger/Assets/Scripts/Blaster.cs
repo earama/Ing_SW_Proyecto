@@ -13,7 +13,9 @@ public class Blaster : MonoBehaviour
     public int speed;
     private bool firstUpdate;
     public Vector3 direccion;
+    public float minDistance = 0.0f;
 
+    // Start is called before the first frame update
     void Start()
     {
         objectPooler = ObjectPooler.Instance;
@@ -25,15 +27,39 @@ public class Blaster : MonoBehaviour
         direccion = Vector3.up;
     }
 
-    void FixedUpdate()
+    // Update is called once per frame
+    void Update()
     {
-        if(previousPosition != transform.position){
+        //Debug.Log("Distance");
+        //Debug.Log(Vector3.Distance(previousPosition, transform.position));
+        //Debug.Log("prevPos");
+        //Debug.Log(previousPosition);
+        //Debug.Log("Pos");
+        //Debug.Log(transform.position);
+        var distance = Vector3.Distance(previousPosition, transform.position);
+        if(previousPosition != transform.position && distance > minDistance){
+
             if(frameCounter >= numFramesTillShoot){
-                objectPooler.SpawnFromPool("Projectiles", transform.position, Quaternion.identity);
+                objectPooler.SpawnFromPool("Projectiles", transform.position, Quaternion.identity, previousPosition);
                 frameCounter = 0;
+            }
+            frameCounter++;
+
         }
-        frameCounter++;
-        } 
-        previousPosition = transform.position;
+        if(distance > minDistance){
+            previousPosition = transform.position;
+        }
+            
+        
+
+
+    }
+    void FixedUpdate() 
+    {
+
+    }
+    void OnEnable()
+    {
+        //Shooting logic
     }
 }

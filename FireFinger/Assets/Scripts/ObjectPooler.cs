@@ -24,6 +24,7 @@ public class ObjectPooler : MonoBehaviour
     public Dictionary<string, Queue<GameObject>> poolDictrionary;
     public GameObject player;
 
+    // Start is called before the first frame update
     void Start()
     {
        poolDictrionary = new Dictionary<string, Queue<GameObject>>();
@@ -40,7 +41,7 @@ public class ObjectPooler : MonoBehaviour
        }
     }
 
-    public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
+    public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation, Vector3 prevPosition)
     {
         if(!poolDictrionary.ContainsKey(tag))
         {
@@ -51,6 +52,8 @@ public class ObjectPooler : MonoBehaviour
         objectToSpawn.SetActive(true);
         objectToSpawn.transform.position = position;
         objectToSpawn.transform.rotation = rotation;
+        objectToSpawn.GetComponent<Projectile>().prevPosition = prevPosition;
+        objectToSpawn.GetComponent<Projectile>().position = position;
 
         poolDictrionary[tag].Enqueue(objectToSpawn);
         return objectToSpawn;
