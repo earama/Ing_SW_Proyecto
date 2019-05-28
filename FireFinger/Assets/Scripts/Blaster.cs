@@ -13,7 +13,7 @@ public class Blaster : MonoBehaviour
     public int speed;
     private bool firstUpdate;
     public Vector3 direccion;
-    public float minDistance = 0.0f;
+    public float minDistance;
 
     // Start is called before the first frame update
     void Start()
@@ -22,9 +22,10 @@ public class Blaster : MonoBehaviour
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         previousPosition = transform.position;
         frameCounter = 0;
-        numFramesTillShoot = 3;
+        numFramesTillShoot = 1;
         speed = 3;
         direccion = Vector3.up;
+        minDistance = 0.8f;
     }
 
     // Update is called once per frame
@@ -37,26 +38,32 @@ public class Blaster : MonoBehaviour
         //Debug.Log("Pos");
         //Debug.Log(transform.position);
 
- /*        
-        var distance = Vector3.Distance(previousPosition, transform.position);
-        if(previousPosition != transform.position && distance >= minDistance){
+        if(!PauseMenu.gameIsPaused){
+            var pos = transform.position;
+            var distance = Vector3.Distance(previousPosition, pos);
+            if(previousPosition != pos && distance >= minDistance){
+//Debug.Log("minDistance Blast");
+//Debug.Log(minDistance);
+//Debug.Log("Distance Blast");
+//Debug.Log(Vector3.Distance(previousPosition,pos));
+Debug.Log("prevPos Blast");
+Debug.Log(previousPosition);
+//Debug.Log("Pos Blast");
+//Debug.Log(pos);
 
-            if(frameCounter >= numFramesTillShoot){
-                objectPooler.SpawnFromPool("Projectiles", transform.position, Quaternion.identity, previousPosition);
-                frameCounter = 0;
+
+                if(frameCounter >= numFramesTillShoot){
+                    objectPooler.SpawnFromPool("Projectiles", pos, Quaternion.identity, previousPosition);
+                    frameCounter = 0;
+                }
+                frameCounter++;
+
             }
-            frameCounter++;
-
-        }
-        if(distance >= minDistance){
-            previousPosition = transform.position;
-        }
+            if(distance >= minDistance){
+                previousPosition = transform.position;
+            }
             
- */     if(frameCounter >= numFramesTillShoot){
-            objectPooler.SpawnFromPool("Projectiles", transform.position, Quaternion.identity, previousPosition);
-            frameCounter = 0;
         }
-        frameCounter++;
 
 
     }

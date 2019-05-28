@@ -99,4 +99,9 @@ public class PauseMenu : MonoBehaviour
         RectTransform objectRectTransform = gameObject.GetComponent<RectTransform> ();
         return new Vector2(coordJuego.x-objectRectTransform.rect.width/2,coordJuego.y-objectRectTransform.rect.height/2);
     }
+
+    void OnDisable()
+    {
+        gameIsPaused = true;
+    }
 }

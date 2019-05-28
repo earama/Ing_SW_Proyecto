@@ -14,6 +14,7 @@ public class Projectile : MonoBehaviour
     private bool firstUpdate;
     private GameObject blaster;
     public float minDistance = 1.5f;
+    private bool firstEnable = true;
 
     // Start is called before the first frame update
     private void Start() 
@@ -21,8 +22,8 @@ public class Projectile : MonoBehaviour
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         player = GameObject.FindWithTag("Player");
         blaster = GameObject.FindWithTag("Blaster");
-        position = transform.position;
-        prevPosition = transform.position;
+        //position = transform.position;
+        //prevPosition = transform.position;
         //prevPosition = blaster.GetComponent<Blaster>().previousPosition;
         firstUpdate = true;
     }
@@ -31,10 +32,10 @@ public class Projectile : MonoBehaviour
         if(gameObject.activeSelf){
             //rb.velocity = transform.up * speed;
             if(firstUpdate){
-                position = transform.position;
+ //               position = transform.position;
                 //position = player.transform.position;
                 //prevPosition = blaster.GetComponent<Blaster>().previousPosition;
-                firstUpdate = false;
+ //               firstUpdate = false;
                 //Debug.Log("projectile FIRST UPDATE");
                 //Debug.Log("projectile prevPos");
                // Debug.Log(prevPosition);
@@ -45,19 +46,16 @@ public class Projectile : MonoBehaviour
                 firstUpdate = true;
                 //rb.velocity = transform.up * speed;
             }*/
-            Debug.Log("projectile prevPos");
-            Debug.Log(prevPosition);
-            Debug.Log("projectile Pos");
-            Debug.Log(position);
+            
 
             //rb.velocity = Vector2.MoveTowards(position, prevPosition, 1).normalized*-speed;
-            var distance = Vector3.Distance(prevPosition, transform.position);
-            if(prevPosition != position && distance >= minDistance){
+//            var distance = Vector3.Distance(prevPosition, transform.position);
+//            if(prevPosition != position && distance >= minDistance){
                 //rb.velocity = (prevPosition - position).normalized*speed;
-                rb.velocity = Vector2.MoveTowards(position, prevPosition, 1).normalized*-speed;
-            } else {
-                gameObject.SetActive(false);
-            }
+//                rb.velocity = Vector2.MoveTowards(position, prevPosition, 1).normalized*-speed;
+//            } else {
+//                gameObject.SetActive(false);
+//            }
             /* 
             if(distance >= minDistance){
                 prevPosition = transform.position;
@@ -98,9 +96,25 @@ public class Projectile : MonoBehaviour
     void OnEnable()
     {
         firstUpdate = true;
-        prevPosition = transform.position;
-        FindObjectOfType<AudioManager>().Play("ShootingProjectile");
-        rb.velocity = Vector2.zero;
+        //prevPosition = transform.position;
+        if (!firstEnable) {
+            FindObjectOfType<AudioManager>().Play("ShootingProjectile");
+            //rb.velocity = Vector2.zero;
+            //rb.velocity = Vector2.MoveTowards(position, prevPosition, 1).normalized*-speed;
+            rb.velocity = (prevPosition - position).normalized*speed;
+//            Debug.Log("projectile prevPos");
+//            Debug.Log(prevPosition);
+//            Debug.Log("projectile Pos");
+ //           Debug.Log(position);
+        } else {
+            firstEnable = false;
+        }
+        
 
+    }
+
+    void OnDisable()
+    {
+        //rb.velocity = Vector2.zero;
     }
 }

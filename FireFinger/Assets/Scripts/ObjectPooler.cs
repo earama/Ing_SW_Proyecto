@@ -49,11 +49,26 @@ public class ObjectPooler : MonoBehaviour
             return null;
         }
         GameObject objectToSpawn = poolDictrionary[tag].Dequeue();
-        objectToSpawn.SetActive(true);
+        
         objectToSpawn.transform.position = position;
         objectToSpawn.transform.rotation = rotation;
-        //objectToSpawn.GetComponent<Projectile>().prevPosition = prevPosition;
-        //objectToSpawn.GetComponent<Projectile>().position = position;
+        objectToSpawn.GetComponent<Projectile>().prevPosition = prevPosition;
+        objectToSpawn.GetComponent<Projectile>().position = position;
+        objectToSpawn.SetActive(true);
+        /* 
+Debug.Log("Distance param ObjPl");
+Debug.Log(Vector3.Distance(prevPosition,position));
+Debug.Log("prevPos param ObjPl");
+Debug.Log(prevPosition);
+Debug.Log("Pos param ObjPl");
+Debug.Log(position);
+
+Debug.Log("Distance proj ObjPl");
+Debug.Log(Vector3.Distance(objectToSpawn.GetComponent<Projectile>().prevPosition,objectToSpawn.GetComponent<Projectile>().position));
+Debug.Log("prevPos proj ObjPl");
+Debug.Log(objectToSpawn.GetComponent<Projectile>().prevPosition);
+Debug.Log("Pos proj ObjPl");
+Debug.Log(objectToSpawn.GetComponent<Projectile>().position);*/
 
         poolDictrionary[tag].Enqueue(objectToSpawn);
         return objectToSpawn;
