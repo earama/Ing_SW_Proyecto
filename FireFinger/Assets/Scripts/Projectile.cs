@@ -47,6 +47,11 @@ public class Projectile : MonoBehaviour
         firstUpdate = true;
         if (!firstEnable) {
             rb.velocity = (prevPosition - position).normalized*speed;
+            // Rotacion
+            Vector2 direction = rb.velocity;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speed);
         } else {
             firstEnable = false;
         }
