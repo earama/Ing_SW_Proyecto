@@ -22,7 +22,7 @@ public class Blaster : MonoBehaviour
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         previousPosition = transform.position;
         frameCounter = 0;
-        numFramesTillShoot = 2;
+        numFramesTillShoot = 3;
         speed = 3;
         direccion = Vector3.up;
     }
@@ -36,6 +36,8 @@ public class Blaster : MonoBehaviour
         //Debug.Log(previousPosition);
         //Debug.Log("Pos");
         //Debug.Log(transform.position);
+
+ /*        
         var distance = Vector3.Distance(previousPosition, transform.position);
         if(previousPosition != transform.position && distance >= minDistance){
 
@@ -50,7 +52,11 @@ public class Blaster : MonoBehaviour
             previousPosition = transform.position;
         }
             
-        
+ */     if(frameCounter >= numFramesTillShoot){
+            objectPooler.SpawnFromPool("Projectiles", transform.position, Quaternion.identity, previousPosition);
+            frameCounter = 0;
+        }
+        frameCounter++;
 
 
     }

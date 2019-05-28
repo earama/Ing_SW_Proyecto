@@ -6,14 +6,14 @@ public class Projectile : MonoBehaviour
 {
     public int damage = 10;
     public Rigidbody2D rb;
-    public float speed = 10f;
+    public float speed = 2f;
     private Vector2 screenBounds;
     public GameObject player;
     public Vector3 position;
     public Vector3 prevPosition;
     private bool firstUpdate;
     private GameObject blaster;
-    public float minDistance = 0.1f;
+    public float minDistance = 1.5f;
 
     // Start is called before the first frame update
     private void Start() 
@@ -53,7 +53,8 @@ public class Projectile : MonoBehaviour
             //rb.velocity = Vector2.MoveTowards(position, prevPosition, 1).normalized*-speed;
             var distance = Vector3.Distance(prevPosition, transform.position);
             if(prevPosition != position && distance >= minDistance){
-                rb.velocity = (prevPosition - position).normalized*speed;
+                //rb.velocity = (prevPosition - position).normalized*speed;
+                rb.velocity = Vector2.MoveTowards(position, prevPosition, 1).normalized*-speed;
             } else {
                 gameObject.SetActive(false);
             }
@@ -99,6 +100,7 @@ public class Projectile : MonoBehaviour
         firstUpdate = true;
         prevPosition = transform.position;
         FindObjectOfType<AudioManager>().Play("ShootingProjectile");
+        rb.velocity = Vector2.zero;
 
     }
 }
