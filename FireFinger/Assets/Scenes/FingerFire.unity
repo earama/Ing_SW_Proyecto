@@ -538,6 +538,11 @@ PrefabInstance:
       propertyPath: objectPooler
       value: 
       objectReference: {fileID: 1752558409}
+    - target: {fileID: 422035608616498582, guid: a69005bbf52bfcd4e975ca4615c402c2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 376117633785576434, guid: a69005bbf52bfcd4e975ca4615c402c2,
         type: 3}
       propertyPath: m_TagString
