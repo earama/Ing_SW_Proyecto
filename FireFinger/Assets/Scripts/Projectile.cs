@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
 {
     public int damage = 10;
     public Rigidbody2D rb;
-    public float speed = 10000f;
+    public float speed = 10f;
     private Vector2 screenBounds;
     public GameObject player;
     private Vector3 position;
@@ -37,7 +37,7 @@ public class Projectile : MonoBehaviour
             //rb.velocity = transform.up * speed;
         }*/
         
-        rb.velocity = Vector3.MoveTowards(prevPosition, position, speed);
+        rb.velocity = Vector3.MoveTowards(position, prevPosition*10, speed);
         //rb.velocity = Vector3.MoveTowards(position, prevPosition, speed*Time.deltaTime);
         if(transform.position.x >= screenBounds.x || transform.position.y >= screenBounds.y)
         {
@@ -58,5 +58,10 @@ public class Projectile : MonoBehaviour
         }
         
      
+    }
+
+    void OnDisable()
+    {
+        firstUpdate = true;
     }
 }
