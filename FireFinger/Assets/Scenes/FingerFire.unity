@@ -733,6 +733,16 @@ PrefabInstance:
       propertyPath: m_Parameters.colorGradient.m_NumAlphaKeys
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1686349767699146075, guid: a69005bbf52bfcd4e975ca4615c402c2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1686349767699146075, guid: a69005bbf52bfcd4e975ca4615c402c2,
+        type: 3}
+      propertyPath: m_Autodestruct
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a69005bbf52bfcd4e975ca4615c402c2, type: 3}
 --- !u!1001 &1993817915961872658
