@@ -98,5 +98,7 @@ public class Projectile : MonoBehaviour
     {
         firstUpdate = true;
         prevPosition = transform.position;
+        FindObjectOfType<AudioManager>().Play("ShootingProjectile");
+
     }
 }
