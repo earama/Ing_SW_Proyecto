@@ -189,8 +189,8 @@ MonoBehaviour:
     loop: 0
   - name: EnemyHit
     clip: {fileID: 8300000, guid: 468625121f504d747aabc3af876073b8, type: 3}
-    volume: 1
-    pitch: 1.08
+    volume: 0.15
+    pitch: 0.44
     source: {fileID: 0}
     loop: 0
 --- !u!4 &375258721
@@ -542,6 +542,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 422035608616498582, guid: a69005bbf52bfcd4e975ca4615c402c2,
+        type: 3}
+      propertyPath: minDistance
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 422035608616498582, guid: a69005bbf52bfcd4e975ca4615c402c2,
+        type: 3}
+      propertyPath: numFramesTillShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 422035608616498582, guid: a69005bbf52bfcd4e975ca4615c402c2,
+        type: 3}
+      propertyPath: speed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 376117633785576434, guid: a69005bbf52bfcd4e975ca4615c402c2,
         type: 3}

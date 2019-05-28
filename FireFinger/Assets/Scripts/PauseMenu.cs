@@ -20,7 +20,6 @@ public class PauseMenu : MonoBehaviour
         playerPosition.Set(objectRectTransform.rect.width/2, objectRectTransform.rect.height/2);
 
     }
-    // Update is called once per frame
     void Update()
     {
         if(Input.touchCount > 0)
@@ -31,14 +30,9 @@ public class PauseMenu : MonoBehaviour
             {
                 playerPosition.Set(touch.position.x, touch.position.y);
                 PlayButton.transform.position.Set(playerPosition.x,playerPosition.y,PlayButton.transform.position.z);
-                //PlayButton.GetComponent<RectTransform>().localPosition.Set(playerPosition.x,playerPosition.y,PlayButton.GetComponent<RectTransform>().localPosition.z);
                 PlayButton.GetComponent<RectTransform>().anchoredPosition = mappingJuegoACanvas(playerPosition);
-                
-                //playerPosition.Set(Player.GetComponent<Rigidbody2D>().position.x,Player.GetComponent<Rigidbody2D>().position.y);
                 if (!gameIsPaused)
                 {
-                    //while(playerPosition != touch.position){ }
-                    
                     Pause();
                 }
             }
@@ -90,7 +84,6 @@ public class PauseMenu : MonoBehaviour
                 pos2.y = (pos2.y*-1);
                 MenuButton.transform.position = pos2;
             }
-            
         }
     }
  

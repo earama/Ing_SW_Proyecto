@@ -4,31 +4,29 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int health = 50;
+    public int health = 50; //enemy HP
     public ParticleSystem deathEffect;
     ObjectPooler objectPooler;
 
 
-    // Start is called before the first frame update
     private void Start() 
     {
         objectPooler = ObjectPooler.Instance;        
     }
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage) //enemy collides with projectile
     {
         health -= damage;
-        FindObjectOfType<AudioManager>().Play("EnemyHit");
+        // FindObjectOfType<AudioManager>().Play("EnemyHit");
         if(health <= 0)
         {
-            Die();
+            Die(); //enemy dies
         }        
     }
 
-    // Update is called once per frame
     void Die()
     {
-        Instantiate (deathEffect, transform.position, Quaternion.identity);
-        Destroy(gameObject);
-        FindObjectOfType<AudioManager>().Play("EnemyDeath");
+        Instantiate (deathEffect, transform.position, Quaternion.identity); //death effect gets shown
+        Destroy(gameObject); //enemy game object gets deleted
+        FindObjectOfType<AudioManager>().Play("EnemyDeath"); //enemy death's sound effect
     }
 }

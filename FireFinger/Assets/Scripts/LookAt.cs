@@ -6,7 +6,6 @@ public class LookAt : MonoBehaviour
 {
     public float speed = 5f;
 
-    // Update is called once per frame
     void Update()
     {
         Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;

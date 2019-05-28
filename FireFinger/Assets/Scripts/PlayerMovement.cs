@@ -8,13 +8,11 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 direction;
 
-    // Use this for initialization
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     private void Update()
     {
         if (Input.touchCount > 0)

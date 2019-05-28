@@ -4,75 +4,45 @@ using UnityEngine;
 
 public class Blaster : MonoBehaviour
 {
-
-    ObjectPooler objectPooler;
+    //scriptSet
+    private ObjectPooler objectPooler;
     private Vector2 screenBounds;
-    public Vector3 previousPosition;
-    private int frameCounter;
+    private Vector3 previousPosition;
+    private int frameCounter = 0;
+
+    //inspectorSet
     public int numFramesTillShoot;
     public int speed;
-    private bool firstUpdate;
-    public Vector3 direccion;
     public float minDistance;
 
-    // Start is called before the first frame update
     void Start()
     {
         objectPooler = ObjectPooler.Instance;
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-        previousPosition = transform.position;
-        frameCounter = 0;
-        numFramesTillShoot = 1;
-        speed = 3;
-        direccion = Vector3.up;
-        minDistance = 0.8f;
+        screenBounds = Camera.main.ScreenToWorldPoint //screen bounds (canvas)
+        (
+            new Vector3
+            (
+                Screen.width, Screen.height, Camera.main.transform.position.z
+            )
+        );
+        previousPosition = transform.position; //initial position of the blaster
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //Debug.Log("Distance");
-        //Debug.Log(Vector3.Distance(previousPosition, transform.position));
-        //Debug.Log("prevPos");
-        //Debug.Log(previousPosition);
-        //Debug.Log("Pos");
-        //Debug.Log(transform.position);
-
-        if(!PauseMenu.gameIsPaused){
-            var pos = transform.position;
-            var distance = Vector3.Distance(previousPosition, pos);
-            if(previousPosition != pos && distance >= minDistance){
-//Debug.Log("minDistance Blast");
-//Debug.Log(minDistance);
-//Debug.Log("Distance Blast");
-//Debug.Log(Vector3.Distance(previousPosition,pos));
-Debug.Log("prevPos Blast");
-Debug.Log(previousPosition);
-//Debug.Log("Pos Blast");
-//Debug.Log(pos);
-
-
-                if(frameCounter >= numFramesTillShoot){
-                    objectPooler.SpawnFromPool("Projectiles", pos, Quaternion.identity, previousPosition);
+        if(!PauseMenu.gameIsPaused){ // if the game is running.
+            var pos = transform.position; //blaster actual pos.
+            var distance = Vector3.Distance(previousPosition, pos); //magnitud of vector (pos, previousPosition).
+            if(previousPosition != pos && distance >= minDistance){ //if blaster is moving at least "x" distance.
+                if(frameCounter >= numFramesTillShoot){ // if x frames have passed.
+                    objectPooler.SpawnFromPool("Projectiles", pos, Quaternion.identity, previousPosition); //fire!
                     frameCounter = 0;
                 }
                 frameCounter++;
-
             }
-            if(distance >= minDistance){
+            if(distance >= minDistance){  //if moving change previousposition.
                 previousPosition = transform.position;
             }
-            
         }
-
-
-    }
-    void FixedUpdate() 
-    {
-
-    }
-    void OnEnable()
-    {
-        //Shooting logic
     }
 }

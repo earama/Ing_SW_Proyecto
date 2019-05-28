@@ -8,7 +8,6 @@ public class EnemySpawn : MonoBehaviour
     public float respawnTime = 4.0f;
     private Vector2 screenBounds;
     
-    // Start is called before the first frame update
     void Start()
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
