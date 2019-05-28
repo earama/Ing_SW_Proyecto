@@ -115,10 +115,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f676348e1741a349a2a162ddf5f817f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 30
   rb: {fileID: -4506527578861529068}
-  speed: 30
+  speed: 10
   player: {fileID: 0}
+  position: {x: 0, y: 0, z: 0}
+  prevPosition: {x: 0, y: 0, z: 0}
+  minDistance: 1.5
 --- !u!60 &8057894459166238424
 PolygonCollider2D:
   m_ObjectHideFlags: 0
