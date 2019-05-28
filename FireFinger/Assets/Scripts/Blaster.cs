@@ -37,7 +37,7 @@ public class Blaster : MonoBehaviour
         //Debug.Log("Pos");
         //Debug.Log(transform.position);
         var distance = Vector3.Distance(previousPosition, transform.position);
-        if(previousPosition != transform.position && distance > minDistance){
+        if(previousPosition != transform.position && distance >= minDistance){
 
             if(frameCounter >= numFramesTillShoot){
                 objectPooler.SpawnFromPool("Projectiles", transform.position, Quaternion.identity, previousPosition);
@@ -46,7 +46,7 @@ public class Blaster : MonoBehaviour
             frameCounter++;
 
         }
-        if(distance > minDistance){
+        if(distance >= minDistance){
             previousPosition = transform.position;
         }
             

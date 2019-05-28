@@ -13,6 +13,7 @@ public class Projectile : MonoBehaviour
     public Vector3 prevPosition;
     private bool firstUpdate;
     private GameObject blaster;
+    public float minDistance = 0.1f;
 
     // Start is called before the first frame update
     private void Start() 
@@ -20,8 +21,9 @@ public class Projectile : MonoBehaviour
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         player = GameObject.FindWithTag("Player");
         blaster = GameObject.FindWithTag("Blaster");
-        //position = player.transform.position;
-        prevPosition = blaster.GetComponent<Blaster>().previousPosition;
+        position = transform.position;
+        prevPosition = transform.position;
+        //prevPosition = blaster.GetComponent<Blaster>().previousPosition;
         firstUpdate = true;
     }
     void Update()
@@ -29,7 +31,7 @@ public class Projectile : MonoBehaviour
         if(gameObject.activeSelf){
             //rb.velocity = transform.up * speed;
             if(firstUpdate){
-                
+                position = transform.position;
                 //position = player.transform.position;
                 //prevPosition = blaster.GetComponent<Blaster>().previousPosition;
                 firstUpdate = false;
@@ -49,7 +51,16 @@ public class Projectile : MonoBehaviour
             Debug.Log(position);
 
             //rb.velocity = Vector2.MoveTowards(position, prevPosition, 1).normalized*-speed;
-            rb.velocity = (prevPosition - position).normalized*-speed;
+            var distance = Vector3.Distance(prevPosition, transform.position);
+            if(prevPosition != position && distance >= minDistance){
+                rb.velocity = (prevPosition - position).normalized*speed;
+            } else {
+                gameObject.SetActive(false);
+            }
+            /* 
+            if(distance >= minDistance){
+                prevPosition = transform.position;
+            }*/
             /*
             if(prevPosition != position){
                 rb.velocity = (prevPosition - position).normalized*-speed;
@@ -86,5 +97,6 @@ public class Projectile : MonoBehaviour
     void OnEnable()
     {
         firstUpdate = true;
+        prevPosition = transform.position;
     }
 }

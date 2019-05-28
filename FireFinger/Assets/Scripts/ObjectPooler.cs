@@ -52,8 +52,8 @@ public class ObjectPooler : MonoBehaviour
         objectToSpawn.SetActive(true);
         objectToSpawn.transform.position = position;
         objectToSpawn.transform.rotation = rotation;
-        objectToSpawn.GetComponent<Projectile>().prevPosition = prevPosition;
-        objectToSpawn.GetComponent<Projectile>().position = position;
+        //objectToSpawn.GetComponent<Projectile>().prevPosition = prevPosition;
+        //objectToSpawn.GetComponent<Projectile>().position = position;
 
         poolDictrionary[tag].Enqueue(objectToSpawn);
         return objectToSpawn;
