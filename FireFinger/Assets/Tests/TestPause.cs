@@ -12,7 +12,7 @@ namespace Tests
         private bool hayColision; 
 
         [UnityTest]
-        public IEnumerator TiempoParalizadoEnPausa()
+        public IEnumerator TiempoParalizadoEnPausa() // test if time stops
         {
             yield return SceneManager.LoadSceneAsync("FingerFire");
             SceneManager.SetActiveScene(SceneManager.GetSceneByName("FingerFire"));
@@ -27,7 +27,7 @@ namespace Tests
         }
 
         [UnityTest]
-        public IEnumerator TiempoNoParalizadoEnNoPausa()
+        public IEnumerator TiempoNoParalizadoEnNoPausa() // test if time resumes
         {
             yield return SceneManager.LoadSceneAsync("FingerFire");
             SceneManager.SetActiveScene(SceneManager.GetSceneByName("FingerFire"));
@@ -42,16 +42,12 @@ namespace Tests
         }
 
         [UnityTest]
-        public IEnumerator NoHayColisionEntrePlayButtonYOtrosBotones()
+        public IEnumerator NoHayColisionEntrePlayButtonYOtrosBotones() // test if pause menu crashes with play button
         {
             yield return SceneManager.LoadSceneAsync("FingerFire");
             SceneManager.SetActiveScene(SceneManager.GetSceneByName("FingerFire"));
             for(int i = 0; i < 100; i++) {
                 yield return new WaitForSeconds(0.1f);
-                //var canvasRT = GameObject.Find("Canvas").GetComponent<RectTransform> ();
-                //var menuButton = GameObject.Find("Canvas").transform.Find("PauseMenu").gameObject.transform.Find("MenuButton").gameObject;
-                //var volumeButton = GameObject.Find("Canvas").transform.Find("PauseMenu").gameObject.transform.Find("VolumeButton").gameObject;
-                //var playButton = GameObject.Find("Canvas").transform.Find("PauseMenu").gameObject.transform.Find("PlayButton").gameObject;
                 if(hayColision){
                     Assert.Fail();
                 }

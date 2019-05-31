@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// how enemy spawn
 public class EnemySpawn : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public float respawnTime = 4.0f;
-    private Vector2 screenBounds;
+    public float respawnTime = 4.0f; // time to spawn
+    private Vector2 screenBounds; // screen limits
     
     void Start()
     {
+        //set screen limits
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        // spawn enemy waves 
         StartCoroutine(enemyWave());
     }
 
@@ -18,16 +22,17 @@ public class EnemySpawn : MonoBehaviour
     {
         do
         {
-            yield return new WaitForSeconds(respawnTime);
-            FindObjectOfType<AudioManager>().Play("EnemySpawn");
-            spawnEnemy();
+            yield return new WaitForSeconds(respawnTime); // wait for the time set to respawn new enemy
+            FindObjectOfType<AudioManager>().Play("EnemySpawn"); // spawn sound
+            spawnEnemy(); // call spwan method
         }while(true);
     }
+
+    //spawn method
     private void spawnEnemy()
     {
-        GameObject a = Instantiate(enemyPrefab) as GameObject;
-        // cual borde
-        var ran = Random.Range(1,4);
+        GameObject a = Instantiate(enemyPrefab) as GameObject; // create enemy
+        var ran = Random.Range(1,4); // cual borde
         float posx = 0;
         float posy = 0;
         if (ran == 1) { // Borde izquierdo
@@ -44,6 +49,6 @@ public class EnemySpawn : MonoBehaviour
         } else { // Borde arriba o abajo
             posx = Random.Range(-screenBounds.x, screenBounds.x);
         }
-        a.transform.position = new Vector2(posx, posy);
+        a.transform.position = new Vector2(posx, posy); // spawn in posx, posy position
     }
 }

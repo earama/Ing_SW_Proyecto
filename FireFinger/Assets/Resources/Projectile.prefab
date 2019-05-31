@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2661919661786287956}
   - component: {fileID: -4506527578861529068}
   - component: {fileID: -8988792574994667079}
-  - component: {fileID: 8057894459166238424}
   - component: {fileID: 1225958951707118813}
   m_Layer: 0
   m_Name: Projectile
@@ -70,7 +69,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1982211467
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 105cd17dcf9a69149885c11a3e1f00c5, type: 3}
   m_Color: {r: 1, g: 0.039275132, b: 0, a: 1}
@@ -122,57 +121,6 @@ MonoBehaviour:
   player: {fileID: 0}
   position: {x: 0, y: 0, z: 0}
   prevPosition: {x: 0, y: 0, z: 0}
---- !u!60 &8057894459166238424
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2661919661786287959}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1.92, y: 1.57}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.57, y: -0.105}
-      - {x: 0.63, y: -0.035}
-      - {x: 0.64, y: -0.024999999}
-      - {x: 0.64, y: 0.095}
-      - {x: 0.48999998, y: 0.195}
-      - {x: 0.34, y: 0.225}
-      - {x: 0.25, y: 0.235}
-      - {x: 0.04, y: 0.235}
-      - {x: -0.14999999, y: 0.21499999}
-      - {x: -0.32, y: 0.185}
-      - {x: -0.38, y: 0.21499999}
-      - {x: -0.45, y: 0.195}
-      - {x: -0.62, y: 0.175}
-      - {x: -0.78, y: 0.175}
-      - {x: -0.89, y: 0.085}
-      - {x: -0.9, y: 0.024999999}
-      - {x: -0.87, y: -0.015}
-      - {x: -0.83, y: -0.114999995}
-      - {x: -0.78, y: -0.145}
-      - {x: -0.65999997, y: -0.145}
-      - {x: -0.52, y: -0.175}
-      - {x: -0.44, y: -0.175}
-      - {x: -0.28, y: -0.185}
-      - {x: -0.22, y: -0.205}
-      - {x: 0.26999998, y: -0.205}
-      - {x: 0.5, y: -0.155}
 --- !u!70 &1225958951707118813
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
