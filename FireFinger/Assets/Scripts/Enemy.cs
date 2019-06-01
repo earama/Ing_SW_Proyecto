@@ -6,13 +6,13 @@ public class Enemy : MonoBehaviour
 {
     public int health = 50; //enemy HP
     public ParticleSystem deathEffect;
-    ObjectPooler objectPooler;
-    private AnimationManager shake;
+    public ObjectPooler objectPooler;
+    private AnimationManager am;
 
 
     private void Start() 
     {
-        shake = GameObject.FindGameObjectWithTag("AnimationManager").GetComponent<AnimationManager>();
+        am = GameObject.FindGameObjectWithTag("AnimationManager").GetComponent<AnimationManager>();
         objectPooler = ObjectPooler.Instance;        
     }
     public void TakeDamage(int damage) //enemy collides with projectile
@@ -22,7 +22,8 @@ public class Enemy : MonoBehaviour
         if(health <= 0)
         {
             Die(); //enemy dies
-            shake.camShake();
+            am.Shake();
+            am.Ripple();
         }        
     }
 

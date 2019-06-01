@@ -312,6 +312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1160705231}
+  - component: {fileID: 1160705232}
   m_Layer: 0
   m_Name: AnimationManager
   m_TagString: AnimationManager
@@ -333,6 +334,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1160705232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160705230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0bea8d46c26e04bb2acc4edddc2d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camAnim: {fileID: 1267490193}
 --- !u!1 &1267490188
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,6 +360,7 @@ GameObject:
   - component: {fileID: 1267490190}
   - component: {fileID: 1267490192}
   - component: {fileID: 1267490193}
+  - component: {fileID: 1267490194}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -452,6 +467,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1267490194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267490188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8609a9f6ad85955418ea0cc16513fdac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RippleMaterial: {fileID: 2100000, guid: 78f36ed2c282c6c44b9fb0139130e6d9, type: 2}
+  MaxAmount: 10
+  Friction: 0.9
 --- !u!1 &1752558408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,7 +1096,7 @@ PrefabInstance:
     - target: {fileID: 1993817916224683467, guid: 4e5195cbfa25adf459fda9db0a42d371,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.5119934
+      value: -1.5120239
       objectReference: {fileID: 0}
     - target: {fileID: 1993817916224683467, guid: 4e5195cbfa25adf459fda9db0a42d371,
         type: 3}
