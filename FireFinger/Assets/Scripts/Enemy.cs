@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
         if(health <= 0)
         {
             Die(); //enemy dies
-            
+            shake.camShake();
         }        
     }
 
@@ -31,6 +31,5 @@ public class Enemy : MonoBehaviour
         Instantiate (deathEffect, transform.position, Quaternion.identity); //death effect gets shown
         Destroy(gameObject); //enemy game object gets deleted
         FindObjectOfType<AudioManager>().Play("EnemyDeath"); //enemy death's sound effect
-        shake.camShake();
     }
 }
