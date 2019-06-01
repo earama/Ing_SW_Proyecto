@@ -480,7 +480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RippleMaterial: {fileID: 2100000, guid: 78f36ed2c282c6c44b9fb0139130e6d9, type: 2}
-  MaxAmount: 10
+  MaxAmount: 50
   Friction: 0.9
 --- !u!1 &1752558408
 GameObject:
