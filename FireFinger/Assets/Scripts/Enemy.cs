@@ -7,10 +7,12 @@ public class Enemy : MonoBehaviour
     public int health = 50; //enemy HP
     public ParticleSystem deathEffect;
     ObjectPooler objectPooler;
+    private AnimationManager shake;
 
 
     private void Start() 
     {
+        shake = GameObject.FindGameObjectWithTag("AnimationManager").GetComponent<AnimationManager>();
         objectPooler = ObjectPooler.Instance;        
     }
     public void TakeDamage(int damage) //enemy collides with projectile
@@ -20,6 +22,7 @@ public class Enemy : MonoBehaviour
         if(health <= 0)
         {
             Die(); //enemy dies
+            
         }        
     }
 
@@ -28,5 +31,6 @@ public class Enemy : MonoBehaviour
         Instantiate (deathEffect, transform.position, Quaternion.identity); //death effect gets shown
         Destroy(gameObject); //enemy game object gets deleted
         FindObjectOfType<AudioManager>().Play("EnemyDeath"); //enemy death's sound effect
+        shake.camShake();
     }
 }
