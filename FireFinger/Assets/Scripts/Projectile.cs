@@ -15,6 +15,7 @@ public class Projectile : MonoBehaviour
     private GameObject blaster;
     private bool firstEnable = true;
 
+
     private void Start() 
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
