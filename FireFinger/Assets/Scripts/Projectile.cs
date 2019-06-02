@@ -14,6 +14,8 @@ public class Projectile : MonoBehaviour
     private bool firstUpdate;
     private GameObject blaster;
     private bool firstEnable = true;
+    public ParticleSystem hitEffect;
+
 
 
     private void Start() 
@@ -40,6 +42,7 @@ public class Projectile : MonoBehaviour
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
+            Instantiate (hitEffect, transform.position, Quaternion.identity); //death effect gets shown
             gameObject.SetActive(false);
         }
     }

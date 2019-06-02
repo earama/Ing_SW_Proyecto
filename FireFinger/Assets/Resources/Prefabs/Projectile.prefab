@@ -121,6 +121,8 @@ MonoBehaviour:
   player: {fileID: 0}
   position: {x: 0, y: 0, z: 0}
   prevPosition: {x: 0, y: 0, z: 0}
+  hitEffect: {fileID: 7763156527009113942, guid: 71b39cd98d090b848839635a80cc41c5,
+    type: 3}
 --- !u!70 &1225958951707118813
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
