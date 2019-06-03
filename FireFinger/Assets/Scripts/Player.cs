@@ -41,8 +41,10 @@ public class Player : MonoBehaviour
     public void TakeHit(int hits) //enemy collides with projectile
     {
         for(int i = 0; i < hits; i++){
-            // Removes rightmost life
+            // Remove rightmost life
+            Destroy(lives[lives.Count-1]);
             lives.RemoveAt(lives.Count-1);
+            
         }
 
         if(lives.Count == 0)
