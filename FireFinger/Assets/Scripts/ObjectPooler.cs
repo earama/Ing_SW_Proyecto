@@ -22,7 +22,6 @@ public class ObjectPooler : MonoBehaviour
 
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDictrionary;
-    public GameObject player;
 
     void Start()
     {

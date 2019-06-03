@@ -7,6 +7,8 @@ TagManager:
   - Blaster
   - Enemy
   - AnimationManager
+  - ScoreManager
+  - AudioManager
   layers:
   - Default
   - TransparentFX
