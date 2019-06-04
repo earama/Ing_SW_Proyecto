@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // Este script va en el player
 public class Player : MonoBehaviour
@@ -25,7 +26,6 @@ public class Player : MonoBehaviour
             var heartHeight = curLife.GetComponent<SpriteRenderer>().bounds.size.y;
             // Give position
             Vector2 pos = new Vector2(-screenBounds.x + heartWidth/2*(i+1), screenBounds.y-heartHeight/2); 
-            Debug.Log(pos);
             curLife.transform.position = new Vector2(-screenBounds.x + heartWidth*(i+1), screenBounds.y-heartHeight);
             // Add to list
             lives.Add(curLife);
@@ -44,12 +44,13 @@ public class Player : MonoBehaviour
             // Remove rightmost life
             Destroy(lives[lives.Count-1]);
             lives.RemoveAt(lives.Count-1);
-            
+            FindObjectOfType<AudioManager>().Play("PlayerCollision"); //player collision with enemy sound effect
         }
 
-        if(lives.Count == 0)
+        if (lives.Count == 0)
         {
             Die(); //player dies
+            SceneManager.LoadScene("FingerFire");
         }        
     }
 
