@@ -158,6 +158,8 @@ MonoBehaviour:
   healthPrefab: {fileID: 6984969672089922840, guid: 9126c18aa5f6af5408b01a2a58743f46,
     type: 3}
   maxLives: 3
+  collisionEffect: {fileID: 2663522612838485267, guid: d833c1eafb71fd848a2a52e1350af50e,
+    type: 3}
 --- !u!50 &2085277584485513432
 Rigidbody2D:
   serializedVersion: 4
@@ -194,7 +196,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.059626002
 --- !u!96 &1686349767699146075
 TrailRenderer:
   serializedVersion: 2

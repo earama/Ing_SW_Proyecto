@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 {
     public GameObject healthPrefab;
     public int maxLives;
+    public ParticleSystem collisionEffect;
 
     private List<GameObject> lives;
     private Vector2 screenBounds; // screen limits
@@ -45,6 +46,7 @@ public class Player : MonoBehaviour
             Destroy(lives[lives.Count-1]);
             lives.RemoveAt(lives.Count-1);
             FindObjectOfType<AudioManager>().Play("PlayerCollision"); //player collision with enemy sound effect
+            Instantiate(collisionEffect, transform.position, Quaternion.identity); //death effect gets shown
         }
 
         if (lives.Count == 0)
