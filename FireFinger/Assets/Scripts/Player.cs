@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public GameObject healthPrefab;
+    public GameObject GameOverWindow;
     public int maxLives;
     public ParticleSystem collisionEffect;
 
@@ -52,12 +53,14 @@ public class Player : MonoBehaviour
         if (lives.Count == 0)
         {
             Die(); //player dies
-            SceneManager.LoadScene("FingerFire");
+            //SceneManager.LoadScene("FingerFire");
         }        
     }
 
     public void Die()
     {
-        Destroy(gameObject); //player game object gets deleted
+        GameOverWindow.SetActive(true); // Show Game Over
+        Time.timeScale = 0f; // Stop time
+        Destroy(gameObject); // Player game object gets deleted
     }
 }

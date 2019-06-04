@@ -25,7 +25,7 @@ public class Blaster : MonoBehaviour
                 Screen.width, Screen.height, Camera.main.transform.position.z
             )
         );
-        previousPosition = transform.position; //initial position of the blaster
+        previousPosition = transform.position; //initial position of the target
     }
 
     void Update()
