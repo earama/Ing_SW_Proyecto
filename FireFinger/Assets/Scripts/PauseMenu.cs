@@ -20,7 +20,7 @@ public class PauseMenu : MonoBehaviour
         RectTransform objectRectTransform = gameObject.GetComponent<RectTransform> ();
         Pause();
         playerPosition.Set(objectRectTransform.rect.width/2, objectRectTransform.rect.height/2);
-        GameOverWindow.SetActive(false);
+        //GameOverWindow.SetActive(false);
 
     }
     void Update()
@@ -49,6 +49,11 @@ public class PauseMenu : MonoBehaviour
                     }
                 }
             }
+        }
+        if(Player == null){
+            Time.timeScale = 0f; // Stop time
+            GameOverWindow.SetActive(true);
+            Debug.Log("WTFFFFFFFFFFFFFF");
         }
         
     }

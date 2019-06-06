@@ -9,6 +9,7 @@ TagManager:
   - AnimationManager
   - ScoreManager
   - AudioManager
+  - GameOverWindow
   layers:
   - Default
   - TransparentFX

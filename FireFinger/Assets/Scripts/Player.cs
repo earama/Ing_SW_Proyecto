@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
 
     private List<GameObject> lives;
     private Vector2 screenBounds; // screen limits
+    private ScoreManager sm;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +33,7 @@ public class Player : MonoBehaviour
             // Add to list
             lives.Add(curLife);
         }
+
     }
 
     // Update is called once per frame
@@ -59,7 +61,12 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
+        sm = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
+        sm.UpdateHighScores();
+       // Debug.Log("ABABA");
+        
         GameOverWindow.SetActive(true); // Show Game Over
+       // Debug.Log("FGFGFG");
         Time.timeScale = 0f; // Stop time
         Destroy(gameObject); // Player game object gets deleted
     }

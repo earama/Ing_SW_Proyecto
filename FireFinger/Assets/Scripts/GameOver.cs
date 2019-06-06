@@ -1,0 +1,33 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
+public class GameOver : MonoBehaviour
+{
+    public Text scoreText;
+    public Text finalScore;
+    public Text highScore;
+    public GameObject player;
+    private string sceneName;
+    private ScoreManager sm;
+    // Start is called before the first frame update
+    void Start()
+    {
+        gameObject.SetActive(false);
+        sceneName = SceneManager.GetActiveScene().name;
+        
+    }
+
+
+    void OnEnable()
+    {
+        Debug.Log("Game Over Enable");
+        //sm = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
+        //sm.UpdateHighScores();
+        finalScore.text = scoreText.text;
+        string highScoreKey = "Scene"+sceneName+"HighScore0";
+        highScore.text = PlayerPrefs.GetFloat(highScoreKey,0).ToString("0");
+    }
+}
