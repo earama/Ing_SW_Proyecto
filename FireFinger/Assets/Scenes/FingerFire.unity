@@ -793,7 +793,6 @@ MonoBehaviour:
   scoreText: {fileID: 1153890575}
   finalScore: {fileID: 1235780666}
   highScore: {fileID: 408442532}
-  player: {fileID: 1833625489}
 --- !u!1 &1991995638
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,7 +1037,7 @@ PrefabInstance:
     - target: {fileID: 1266963921414853349, guid: 4e5195cbfa25adf459fda9db0a42d371,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.49752808
+      value: 0.4975586
       objectReference: {fileID: 0}
     - target: {fileID: 1266963921414853349, guid: 4e5195cbfa25adf459fda9db0a42d371,
         type: 3}
@@ -1071,6 +1070,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 508299fba11e9ec4aaf7d9d19b36b0c8,
         type: 3}
+    - target: {fileID: 1090599845800406752, guid: 4e5195cbfa25adf459fda9db0a42d371,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1833625489}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e5195cbfa25adf459fda9db0a42d371, type: 3}
 --- !u!1001 &2126171333

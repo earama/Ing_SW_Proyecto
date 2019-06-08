@@ -9,7 +9,6 @@ public class GameOver : MonoBehaviour
     public Text scoreText;
     public Text finalScore;
     public Text highScore;
-    public GameObject player;
     private string sceneName;
     private ScoreManager sm;
     // Start is called before the first frame update

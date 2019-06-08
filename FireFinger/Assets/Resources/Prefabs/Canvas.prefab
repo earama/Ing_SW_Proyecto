@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1266963921414853349}
   - component: {fileID: 9059902205171463793}
   - component: {fileID: 7453421685421921722}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 1993817915617180484}
   - component: {fileID: 1993817915617180490}
   - component: {fileID: 1993817915617180485}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,12 +394,12 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1280, y: 720}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 1
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 1993817916224683470}
   - component: {fileID: 1993817916224683465}
   - component: {fileID: 1993817916224683464}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: VolumeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -574,7 +574,7 @@ GameObject:
   - component: {fileID: 1993817916597107036}
   - component: {fileID: 1993817916597107039}
   - component: {fileID: 1993817916597107038}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -705,7 +705,7 @@ GameObject:
   - component: {fileID: 1993817916736356878}
   - component: {fileID: 1993817916736356876}
   - component: {fileID: 1993817916736356879}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -782,7 +782,7 @@ GameObject:
   - component: {fileID: 6732613400496567816}
   - component: {fileID: 5632687891897863245}
   - component: {fileID: 8799186124368008661}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -858,7 +858,7 @@ GameObject:
   - component: {fileID: 3780683941777999088}
   - component: {fileID: 6234293486126062607}
   - component: {fileID: 8451896568294549452}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
