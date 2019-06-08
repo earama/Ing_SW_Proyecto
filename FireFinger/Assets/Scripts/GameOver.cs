@@ -22,9 +22,6 @@ public class GameOver : MonoBehaviour
 
     void OnEnable()
     {
-        Debug.Log("Game Over Enable");
-        //sm = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
-        //sm.UpdateHighScores();
         finalScore.text = scoreText.text;
         string highScoreKey = "Scene"+sceneName+"HighScore0";
         highScore.text = PlayerPrefs.GetFloat(highScoreKey,0).ToString("0");

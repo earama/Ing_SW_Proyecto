@@ -25,7 +25,6 @@ public class ScoreManager : MonoBehaviour
 
     public void UpdateHighScores()
     {
-        Debug.Log("Update HS");
         float score = scoreCount;
         Debug.Log("Score: "+scoreCount.ToString("0"));
         for(int i = 0; i < leaderboardSize; i++) {
@@ -45,8 +44,6 @@ public class ScoreManager : MonoBehaviour
                     NewRecord();
                 }
             }
-            Debug.Log(i);
-            Debug.Log(curHS);
         }
     }
 
