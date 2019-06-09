@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPrefab: {fileID: 6984969672089922840, guid: 9126c18aa5f6af5408b01a2a58743f46,
     type: 3}
+  GameOverWindow: {fileID: 0}
   maxLives: 3
   collisionEffect: {fileID: 2663522612838485267, guid: d833c1eafb71fd848a2a52e1350af50e,
     type: 3}

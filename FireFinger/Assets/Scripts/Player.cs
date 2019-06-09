@@ -70,4 +70,9 @@ public class Player : MonoBehaviour
         Time.timeScale = 0f; // Stop time
         Destroy(gameObject); // Player game object gets deleted
     }
+
+    public int getNumLives()
+    {
+        return lives.Count;
+    }
 }
