@@ -13,5 +13,6 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("test");
         SceneManager.LoadScene("FingerFire");
+        //SceneManager.SetActiveScene(SceneManager.GetSceneByName("FingerFire"));
     }
 }
