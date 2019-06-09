@@ -7,7 +7,10 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: 
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Menu UI.unity
+    guid: fb95a69a756339540b237693f4a2a859
   - enabled: 1
     path: Assets/Scenes/FingerFire.unity
     guid: 1838458195a5fe440827ec7db80b2386

@@ -11,8 +11,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject VolumeButton;
     public GameObject PlayButton;
     public GameObject GameOverWindow;
-    public Vector2 playerPosition;
     public GameObject Player;
+    private Vector2 playerPosition;
     private bool uiMovido = false;
 
     void Start() 
@@ -20,8 +20,6 @@ public class PauseMenu : MonoBehaviour
         RectTransform objectRectTransform = gameObject.GetComponent<RectTransform> ();
         Pause();
         playerPosition.Set(objectRectTransform.rect.width/2, objectRectTransform.rect.height/2);
-        //GameOverWindow.SetActive(false);
-
     }
     void Update()
     {
@@ -96,7 +94,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Menu()
     {
-        SceneManager.LoadScene("FingerFire");
+        SceneManager.LoadScene("Menu UI");
     }
 
     public void RestartGame()
