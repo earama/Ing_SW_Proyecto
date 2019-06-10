@@ -284,6 +284,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasMenuPrincipal
       objectReference: {fileID: 0}
+    - target: {fileID: 6977611122600490575, guid: 327a2de0d9f18804a8d472ee0c1ee226,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6977611122600490675, guid: 327a2de0d9f18804a8d472ee0c1ee226,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -433,6 +438,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMin.x
       value: 0.13900001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123616976975833734, guid: 327a2de0d9f18804a8d472ee0c1ee226,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123616976975833734, guid: 327a2de0d9f18804a8d472ee0c1ee226,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123616976975833734, guid: 327a2de0d9f18804a8d472ee0c1ee226,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123616976975833734, guid: 327a2de0d9f18804a8d472ee0c1ee226,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 327a2de0d9f18804a8d472ee0c1ee226, type: 3}
