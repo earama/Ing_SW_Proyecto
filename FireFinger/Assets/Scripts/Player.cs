@@ -63,7 +63,6 @@ public class Player : MonoBehaviour
         if (lives.Count == 0)
         {
             Die(); //player dies
-            Debug.Log("WOLOLO");
         }        
     }
 
