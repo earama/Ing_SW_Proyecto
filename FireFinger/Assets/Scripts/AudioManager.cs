@@ -12,7 +12,8 @@ public class AudioManager : MonoBehaviour
     public AudioMixerGroup masterGroup; //Grupo de Mix
     public AudioMixer master;
 
-    public GameObject imagenLinea;
+    public GameObject noVolumeImage;
+    public GameObject volumeImage;
 
     private int volumen;
 
@@ -48,11 +49,13 @@ public class AudioManager : MonoBehaviour
         
         if(valorVolumen != -80) {
             master.SetFloat("volumen", -80);
-            imagenLinea.SetActive(true);
+            noVolumeImage.SetActive(true);
+            volumeImage.SetActive(false);
         }
         else {
             master.SetFloat("volumen", volumen);
-            imagenLinea.SetActive(false);
+            noVolumeImage.SetActive(false);
+            volumeImage.SetActive(true);
         }
     }
 }

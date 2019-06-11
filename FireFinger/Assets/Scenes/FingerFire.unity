@@ -183,7 +183,8 @@ MonoBehaviour:
     loop: 0
   masterGroup: {fileID: 24300002, guid: 2977911371c712d468804b6eeea7d687, type: 2}
   master: {fileID: 24100000, guid: 2977911371c712d468804b6eeea7d687, type: 2}
-  imagenLinea: {fileID: 1686426400}
+  noVolumeImage: {fileID: 1686426400}
+  volumeImage: {fileID: 901681877}
 --- !u!4 &375258721
 Transform:
   m_ObjectHideFlags: 0
@@ -341,6 +342,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &901681877 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1993817915617180487, guid: 4e5195cbfa25adf459fda9db0a42d371,
+    type: 3}
+  m_PrefabInstance: {fileID: 2013634546}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1153890575 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 355952527033160367, guid: 4e5195cbfa25adf459fda9db0a42d371,
@@ -532,86 +539,12 @@ MonoBehaviour:
   RippleMaterial: {fileID: 2100000, guid: 78f36ed2c282c6c44b9fb0139130e6d9, type: 2}
   MaxAmount: 50
   Friction: 0.9
---- !u!224 &1627270757 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1993817916224683467, guid: 4e5195cbfa25adf459fda9db0a42d371,
+--- !u!1 &1686426400 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 190480246769481809, guid: 4e5195cbfa25adf459fda9db0a42d371,
     type: 3}
   m_PrefabInstance: {fileID: 2013634546}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1686426400
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1686426403}
-  - component: {fileID: 1686426402}
-  - component: {fileID: 1686426401}
-  m_Layer: 5
-  m_Name: No
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1686426401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1686426400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 938899f86c280794f96144ea54e4c87c, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 1
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 1
---- !u!222 &1686426402
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1686426400}
-  m_CullTransparentMesh: 0
---- !u!224 &1686426403
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1686426400}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0003312, y: 1.0003312, z: 1.0003312}
-  m_Children: []
-  m_Father: {fileID: 1627270757}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1752558408
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,6 +612,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 190480246769481809, guid: 4e5195cbfa25adf459fda9db0a42d371,
+        type: 3}
+      propertyPath: m_Name
+      value: Image2
+      objectReference: {fileID: 0}
     - target: {fileID: 1993817915763161453, guid: 4e5195cbfa25adf459fda9db0a42d371,
         type: 3}
       propertyPath: m_Name
@@ -849,11 +787,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 1993817916224683464, guid: 4e5195cbfa25adf459fda9db0a42d371,
-        type: 3}
-      propertyPath: m_Interactable
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e5195cbfa25adf459fda9db0a42d371, type: 3}
 --- !u!1001 &2126171333
@@ -893,21 +826,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 422035608616498582, guid: a69005bbf52bfcd4e975ca4615c402c2,
+    - target: {fileID: 8149332507329202815, guid: a69005bbf52bfcd4e975ca4615c402c2,
         type: 3}
-      propertyPath: objectPooler
+      propertyPath: GameOverWindow
       value: 
-      objectReference: {fileID: 1752558409}
-    - target: {fileID: 422035608616498582, guid: a69005bbf52bfcd4e975ca4615c402c2,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 376117633785576434, guid: a69005bbf52bfcd4e975ca4615c402c2,
-        type: 3}
-      propertyPath: m_TagString
-      value: Blaster
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1984777905}
     - target: {fileID: 1686349767699146075, guid: a69005bbf52bfcd4e975ca4615c402c2,
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.size
@@ -1093,11 +1016,21 @@ PrefabInstance:
       propertyPath: m_Parameters.widthMultiplier
       value: 0.4
       objectReference: {fileID: 0}
-    - target: {fileID: 8149332507329202815, guid: a69005bbf52bfcd4e975ca4615c402c2,
+    - target: {fileID: 376117633785576434, guid: a69005bbf52bfcd4e975ca4615c402c2,
         type: 3}
-      propertyPath: GameOverWindow
+      propertyPath: m_TagString
+      value: Blaster
+      objectReference: {fileID: 0}
+    - target: {fileID: 422035608616498582, guid: a69005bbf52bfcd4e975ca4615c402c2,
+        type: 3}
+      propertyPath: objectPooler
       value: 
-      objectReference: {fileID: 1984777905}
+      objectReference: {fileID: 1752558409}
+    - target: {fileID: 422035608616498582, guid: a69005bbf52bfcd4e975ca4615c402c2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a69005bbf52bfcd4e975ca4615c402c2, type: 3}
 --- !u!1001 &1056881675184880734
