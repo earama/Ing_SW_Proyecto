@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject PlayButton;
     public GameObject GameOverWindow;
     public GameObject Player;
+
     private Vector2 playerPosition;
     private bool uiMovido = false;
 
@@ -51,7 +52,6 @@ public class PauseMenu : MonoBehaviour
         if(Player == null){
             Time.timeScale = 0f; // Stop time
             GameOverWindow.SetActive(true);
-            Debug.Log("WTFFFFFFFFFFFFFF");
         }
         
     }

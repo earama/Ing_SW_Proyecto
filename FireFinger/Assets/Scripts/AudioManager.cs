@@ -9,9 +9,17 @@ public class AudioManager : MonoBehaviour
 {
 
     public Sound [] sounds; //libreria de sonidos
+    public AudioMixerGroup masterGroup; //Grupo de Mix
+    public AudioMixer master;
+
+    public GameObject imagenLinea;
+
+    private int volumen;
 
     void Awake()
     {
+        volumen = 0;
+
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource> ();
@@ -19,6 +27,7 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+            s.source.outputAudioMixerGroup = masterGroup;
         }
     }
 
@@ -31,5 +40,19 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.Play();
+    }
+
+    public void toggleAudio() {
+        float valorVolumen;
+        master.GetFloat("volumen", out valorVolumen);
+        
+        if(valorVolumen != -80) {
+            master.SetFloat("volumen", -80);
+            imagenLinea.SetActive(true);
+        }
+        else {
+            master.SetFloat("volumen", volumen);
+            imagenLinea.SetActive(false);
+        }
     }
 }
