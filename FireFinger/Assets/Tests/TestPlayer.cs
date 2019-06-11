@@ -33,5 +33,87 @@ namespace Tests
             // Unload scene
             yield return SceneManager.UnloadSceneAsync("FingerFire");
         }
+
+        [UnityTest]
+        public IEnumerator PlayerSetLives_SetsLives()
+        {
+            // Load and set scene for testing
+            yield return SceneManager.LoadSceneAsync("FingerFire");
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName("FingerFire"));
+            yield return null; // run one frame
+
+            // Test body
+            GameObject playerGO = GameObject.Find("Player");
+            Player player = playerGO.GetComponent<Player>();
+            int numOfLives = 6;
+            player.SetLives(numOfLives);
+            Assert.AreEqual(numOfLives,player.getNumLives());
+
+            // Unload scene
+            yield return SceneManager.UnloadSceneAsync("FingerFire");
+        }
+
+        [UnityTest]
+        public IEnumerator PlayerDies_PlayerObjectGetsDestroyed()
+        {
+            // Load and set scene for testing
+            yield return SceneManager.LoadSceneAsync("FingerFire");
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName("FingerFire"));
+            yield return null; // run one frame
+
+            // Test body
+            GameObject playerGO = GameObject.Find("Player");
+            Player player = playerGO.GetComponent<Player>();
+            player.Die();
+            yield return null; // run one frame (needed to execute Destroy() method)
+            if (player != null) {
+                Assert.Fail();
+            }
+
+            // Unload scene
+            yield return SceneManager.UnloadSceneAsync("FingerFire");
+        }
+
+        [UnityTest]
+        public IEnumerator PlayerTakesDamageEqualToHealth_Dies()
+        {
+            // Load and set scene for testing
+            yield return SceneManager.LoadSceneAsync("FingerFire");
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName("FingerFire"));
+            yield return null; // run one frame
+
+            // Test body
+            GameObject playerGO = GameObject.Find("Player");
+            Player player = playerGO.GetComponent<Player>();
+            int numOfLives = 6;
+            player.SetLives(numOfLives);
+            player.TakeHit(numOfLives);
+            yield return null; // run one frame (needed to execute Destroy() method)
+            if (player != null) {
+                Assert.Fail();
+            }
+
+            // Unload scene
+            yield return SceneManager.UnloadSceneAsync("FingerFire");
+        }
+
+        [UnityTest]
+        public IEnumerator PlayerDies_ShowsGameOver()
+        {
+            // Load and set scene for testing
+            yield return SceneManager.LoadSceneAsync("FingerFire");
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName("FingerFire"));
+            yield return null; // run one frame
+
+            // Test body
+            GameObject playerGO = GameObject.Find("Player");
+            Player player = playerGO.GetComponent<Player>();
+            player.Die();
+            GameObject gameOverGO = GameObject.Find("GameOverWindow");
+            Assert.IsTrue(gameOverGO.activeSelf);
+
+            // Unload scene
+            yield return SceneManager.UnloadSceneAsync("FingerFire");
+        }
     }
 }
