@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -9,9 +10,13 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject MenuButton;
     public GameObject VolumeButton;
+    public GameObject volumeImage;
+    public GameObject noVolumeImage;
     public GameObject PlayButton;
     public GameObject GameOverWindow;
     public GameObject Player;
+
+    public AudioMixer master;
 
     private Vector2 playerPosition;
     private bool uiMovido = false;
@@ -21,7 +26,15 @@ public class PauseMenu : MonoBehaviour
         RectTransform objectRectTransform = gameObject.GetComponent<RectTransform> ();
         Pause();
         playerPosition.Set(objectRectTransform.rect.width/2, objectRectTransform.rect.height/2);
+        //Debug.Log("WAH");
+        
     }
+
+    void Awake()
+    {
+        chooseVolumeImage();
+    }
+
     void Update()
     {
         if(Input.touchCount > 0 && !GameOverWindow.activeSelf)
@@ -113,5 +126,18 @@ public class PauseMenu : MonoBehaviour
         gameIsPaused = true;
     }
 
-    
+    void chooseVolumeImage()
+    {
+        float valorVolumen;
+        master.GetFloat("volumen", out valorVolumen);
+        
+        if(valorVolumen != -80) {
+            noVolumeImage.SetActive(false);
+            volumeImage.SetActive(true);
+        }
+        else {
+            noVolumeImage.SetActive(true);
+            volumeImage.SetActive(false);
+        }
+    }
 }
