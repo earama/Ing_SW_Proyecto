@@ -487,17 +487,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3521369999755319742, guid: 327a2de0d9f18804a8d472ee0c1ee226,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 1dc27c99f772bfb4a9c39a2ec5175648,
-        type: 3}
-    - target: {fileID: 3521369999755319742, guid: 327a2de0d9f18804a8d472ee0c1ee226,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3521370000253358989, guid: 327a2de0d9f18804a8d472ee0c1ee226,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
