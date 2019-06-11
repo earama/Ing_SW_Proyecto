@@ -98,6 +98,29 @@ namespace Tests
         }
 
         [UnityTest]
+        public IEnumerator PlayerTakesDamageGreaterThanHealth_Dies()
+        {
+            // Load and set scene for testing
+            yield return SceneManager.LoadSceneAsync("FingerFire");
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName("FingerFire"));
+            yield return null; // run one frame
+
+            // Test body
+            GameObject playerGO = GameObject.Find("Player");
+            Player player = playerGO.GetComponent<Player>();
+            int numOfLives = 6;
+            player.SetLives(numOfLives);
+            player.TakeHit(numOfLives+1);
+            yield return null; // run one frame (needed to execute Destroy() method)
+            if (player != null) {
+                Assert.Fail();
+            }
+
+            // Unload scene
+            yield return SceneManager.UnloadSceneAsync("FingerFire");
+        }
+
+        [UnityTest]
         public IEnumerator PlayerDies_ShowsGameOver()
         {
             // Load and set scene for testing

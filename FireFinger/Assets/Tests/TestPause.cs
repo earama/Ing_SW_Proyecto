@@ -4,6 +4,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 namespace Tests
 {
@@ -52,6 +53,58 @@ namespace Tests
                     Assert.Fail();
                 }
             }
+            yield return SceneManager.UnloadSceneAsync("FingerFire");
+        }
+
+        [UnityTest]
+        public IEnumerator VolumeMuted_ShowsNoVolumeIcon()
+        {
+            // Load and set scene for testing
+            yield return SceneManager.LoadSceneAsync("FingerFire");
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName("FingerFire"));
+            yield return null; // run one frame
+
+            // Test body
+            GameObject volumeImage = GameObject.Find("Canvas").transform.Find("PauseMenu").transform.Find("VolumeButton").transform.Find("Image").gameObject;
+            GameObject noVolumeImage = GameObject.Find("Canvas").transform.Find("PauseMenu").transform.Find("VolumeButton").transform.Find("No").gameObject;
+            AudioManager audioMgr = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+            AudioMixer master = audioMgr.master;
+            // First, make sure to have normal volume
+            master.SetFloat("volumen", 0);
+            // Then, toggle audio to mute the volume
+            audioMgr.toggleAudio();
+            // Assert state of images
+            if(volumeImage.activeSelf && !noVolumeImage.activeSelf) {
+                Assert.Fail();
+            }
+
+            // Unload scene
+            yield return SceneManager.UnloadSceneAsync("FingerFire");
+        }
+
+        [UnityTest]
+        public IEnumerator VolumeNotMuted_ShowsVolumeIcon()
+        {
+            // Load and set scene for testing
+            yield return SceneManager.LoadSceneAsync("FingerFire");
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName("FingerFire"));
+            yield return null; // run one frame
+
+            // Test body
+            GameObject volumeImage = GameObject.Find("Canvas").transform.Find("PauseMenu").transform.Find("VolumeButton").transform.Find("Image").gameObject;
+            GameObject noVolumeImage = GameObject.Find("Canvas").transform.Find("PauseMenu").transform.Find("VolumeButton").transform.Find("No").gameObject;
+            AudioManager audioMgr = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+            AudioMixer master = audioMgr.master;
+            // First, make sure to mute volume
+            master.SetFloat("volumen", -80);
+            // Then, toggle audio to put volume back to normal
+            audioMgr.toggleAudio();
+            // Assert state of images
+            if(!volumeImage.activeSelf && noVolumeImage.activeSelf) {
+                Assert.Fail();
+            }
+
+            // Unload scene
             yield return SceneManager.UnloadSceneAsync("FingerFire");
         }
 
