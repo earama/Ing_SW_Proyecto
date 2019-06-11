@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
     public GameObject mainMenu;
     public GameObject highScoresPanel;
     public GameObject options;
-    //public GameObject highScoresTexts;
+
     public Text highScore1;
     public Text highScore2;
     public Text highScore3;

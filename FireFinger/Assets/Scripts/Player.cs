@@ -21,8 +21,19 @@ public class Player : MonoBehaviour
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
 
         // Set lives
+        SetLives(maxLives);
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void SetLives(int maxNumLives) {
         lives = new List<GameObject>();
-        for(int i = 0; i < maxLives; i++){
+        for(int i = 0; i < maxNumLives; i++){
             GameObject curLife = Instantiate(healthPrefab) as GameObject;
             // Get dimensions
             var heartWidth = curLife.GetComponent<SpriteRenderer>().bounds.size.x;
@@ -33,17 +44,14 @@ public class Player : MonoBehaviour
             // Add to list
             lives.Add(curLife);
         }
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void TakeHit(int hits) //enemy collides with projectile
     {
+        if (hits > lives.Count)
+        {
+            hits = lives.Count;
+        }
         for(int i = 0; i < hits; i++){
             // Remove rightmost life
             Destroy(lives[lives.Count-1]);
@@ -55,7 +63,7 @@ public class Player : MonoBehaviour
         if (lives.Count == 0)
         {
             Die(); //player dies
-            //SceneManager.LoadScene("FingerFire");
+            Debug.Log("WOLOLO");
         }        
     }
 

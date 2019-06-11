@@ -583,9 +583,12 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 1993817916736356873}
   MenuButton: {fileID: 1993817916597107032}
   VolumeButton: {fileID: 1993817916224683466}
+  volumeImage: {fileID: 1993817915617180487}
+  noVolumeImage: {fileID: 190480246769481809}
   PlayButton: {fileID: 3723809009194136368}
   GameOverWindow: {fileID: 4764267914194039305}
   Player: {fileID: 2085277584485513415, guid: a69005bbf52bfcd4e975ca4615c402c2, type: 3}
+  master: {fileID: 24100000, guid: 2977911371c712d468804b6eeea7d687, type: 2}
 --- !u!1 &1993817916224683466
 GameObject:
   m_ObjectHideFlags: 0
