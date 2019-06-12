@@ -10,14 +10,14 @@ public class OptionsMenu : MonoBehaviour
     public GameObject currentBG;
 
     void Start() {
-        if(PlayerPrefs.GetString("fondo") == "espacioThumbnail") {
-            currentBG.GetComponent<Image> ().sprite = thumbnails[0];
+        if(PlayerPrefs.GetString("fondo") == "volcanThumbnail") {
+            currentBG.GetComponent<Image> ().sprite = thumbnails[2];
         }
         else if(PlayerPrefs.GetString("fondo") == "playaThumbnail") {
             currentBG.GetComponent<Image> ().sprite = thumbnails[1];
         }
         else {
-            currentBG.GetComponent<Image> ().sprite = thumbnails[2];
+            currentBG.GetComponent<Image> ().sprite = thumbnails[0];
         }
     }
 
