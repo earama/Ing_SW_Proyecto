@@ -26,6 +26,7 @@ public class MainMenu : MonoBehaviour
     }
     public void playGame()
     {
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
         SceneManager.LoadScene("FingerFire");
     }
     public void showOptions()

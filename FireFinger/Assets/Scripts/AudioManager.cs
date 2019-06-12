@@ -15,12 +15,8 @@ public class AudioManager : MonoBehaviour
     public GameObject noVolumeImage;
     public GameObject volumeImage;
 
-    private int volumen;
-
     void Awake()
     {
-        volumen = 0;
-
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource> ();
@@ -53,9 +49,11 @@ public class AudioManager : MonoBehaviour
             volumeImage.SetActive(false);
         }
         else {
-            master.SetFloat("volumen", volumen);
+            master.SetFloat("volumen", 0);
             noVolumeImage.SetActive(false);
             volumeImage.SetActive(true);
         }
+        master.GetFloat("volumen", out valorVolumen);
+        PlayerPrefs.SetFloat("volumeValue", valorVolumen);
     }
 }

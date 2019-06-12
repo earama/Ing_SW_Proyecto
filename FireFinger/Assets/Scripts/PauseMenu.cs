@@ -26,11 +26,16 @@ public class PauseMenu : MonoBehaviour
         RectTransform objectRectTransform = gameObject.GetComponent<RectTransform> ();
         Pause();
         playerPosition.Set(objectRectTransform.rect.width/2, objectRectTransform.rect.height/2);
+
+        master.SetFloat("volumen", PlayerPrefs.GetFloat("volumeValue", 0));
+        Debug.Log("WOLODSAA");
+        chooseVolumeImage();
     }
 
     void Awake()
     {
-        chooseVolumeImage();
+        
+        
     }
 
     void Update()

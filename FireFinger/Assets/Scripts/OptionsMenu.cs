@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
 {
+    public GameObject volumeImage;
+    public GameObject noVolumeImage;
     public Sprite[] thumbnails;
-
     public GameObject currentBG;
+    
 
     void Start() {
         if(PlayerPrefs.GetString("fondo") == "volcanThumbnail") {
@@ -19,6 +21,10 @@ public class OptionsMenu : MonoBehaviour
         else {
             currentBG.GetComponent<Image> ().sprite = thumbnails[0];
         }
+    }
+
+    void Awake() {
+        chooseVolumeImage();
     }
 
     public void changeThumbnail() {
@@ -33,5 +39,35 @@ public class OptionsMenu : MonoBehaviour
         }
 
         PlayerPrefs.SetString("fondo",  currentBG.GetComponent<Image> ().sprite.name);
+    }
+
+    public void toggleVolume() {
+        float valorVolumen;
+        valorVolumen = PlayerPrefs.GetFloat("volumeValue", 0);
+        if(valorVolumen != -80) {
+            PlayerPrefs.SetFloat("volumeValue", -80);
+            noVolumeImage.SetActive(true);
+            volumeImage.SetActive(false);
+        }
+        else {
+            PlayerPrefs.SetFloat("volumeValue", 0);
+            noVolumeImage.SetActive(false);
+            volumeImage.SetActive(true);
+        }
+    }
+
+    void chooseVolumeImage()
+    {
+        float valorVolumen;
+        valorVolumen = PlayerPrefs.GetFloat("volumeValue", 0);
+        
+        if(valorVolumen != -80) {
+            noVolumeImage.SetActive(false);
+            volumeImage.SetActive(true);
+        }
+        else {
+            noVolumeImage.SetActive(true);
+            volumeImage.SetActive(false);
+        }
     }
 }
