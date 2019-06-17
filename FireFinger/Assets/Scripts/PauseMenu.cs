@@ -21,12 +21,15 @@ public class PauseMenu : MonoBehaviour
     private Vector2 playerPosition;
     private bool uiMovido = false;
 
+    private Vector3 screenBounds;
+
     void Start() 
     {
         RectTransform objectRectTransform = gameObject.GetComponent<RectTransform> ();
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         Pause();
-        playerPosition.Set(objectRectTransform.rect.width/2, objectRectTransform.rect.height/2);
-
+        //playerPosition.Set(objectRectTransform.rect.width/2, objectRectTransform.rect.height/2);
+        playerPosition.Set(Screen.width/2, Screen.height/2);
         master.SetFloat("volumen", PlayerPrefs.GetFloat("volumeValue", 0));
         Debug.Log("WOLODSAA");
         chooseVolumeImage();
@@ -49,6 +52,7 @@ public class PauseMenu : MonoBehaviour
                 playerPosition.Set(touch.position.x, touch.position.y);
                 PlayButton.transform.position.Set(playerPosition.x,playerPosition.y,PlayButton.transform.position.z);
                 PlayButton.GetComponent<RectTransform>().anchoredPosition = mappingJuegoACanvas(playerPosition);
+                //PlayButton.transform.position.Set(mappingJuegoACanvas(playerPosition).x,mappingJuegoACanvas(playerPosition).y,PlayButton.transform.position.z);
                 if (!gameIsPaused)
                 {
                     Pause();
@@ -58,6 +62,8 @@ public class PauseMenu : MonoBehaviour
             {
                 if (gameIsPaused)
                 {
+                    Debug.Log("touch position: " + touch.position.ToString());
+                    Debug.Log("player position: " + playerPosition.ToString());
                     if(touch.position.x <= playerPosition.x + 100 && touch.position.x >= playerPosition.x - 100 && touch.position.y <= playerPosition.y + 100 && touch.position.y >= playerPosition.y - 100 )
                     {
                         Resume();
@@ -97,7 +103,7 @@ public class PauseMenu : MonoBehaviour
         RectTransform objectRectTransform = gameObject.GetComponent<RectTransform> ();
         if(Input.touchCount > 0)
         {
-            if(Input.GetTouch(0).position.y >=  objectRectTransform.rect.height/2 )
+            if(Input.GetTouch(0).position.y >=  Screen.height/2 )
             {
                 uiMovido = true;
                 pos1.y =(pos1.y*-1);
@@ -122,7 +128,10 @@ public class PauseMenu : MonoBehaviour
     Vector2 mappingJuegoACanvas(Vector2 coordJuego)
     {
         RectTransform objectRectTransform = gameObject.GetComponent<RectTransform> ();
-        return new Vector2(coordJuego.x-objectRectTransform.rect.width/2,coordJuego.y-objectRectTransform.rect.height/2);
+
+        return new Vector2(coordJuego.x-Screen.width/2,coordJuego.y-Screen.height/2);
+        //var temp = Camera.main.WorldToScreenPoint(new Vector3(coordJuego.x, coordJuego.y, 0));
+        //return new Vector2(temp.x, temp.y);
     }
 
     void OnDisable()

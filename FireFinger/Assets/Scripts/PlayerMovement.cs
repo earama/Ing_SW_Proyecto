@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
             touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
             touchPosition.z = 0;
             rb.position = touchPosition;
+            
         }
     }
 }
