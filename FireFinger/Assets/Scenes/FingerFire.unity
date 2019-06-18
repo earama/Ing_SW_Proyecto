@@ -539,6 +539,12 @@ MonoBehaviour:
   RippleMaterial: {fileID: 2100000, guid: 78f36ed2c282c6c44b9fb0139130e6d9, type: 2}
   MaxAmount: 50
   Friction: 0.9
+--- !u!1 &1292739848 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2503370350212916855, guid: a69005bbf52bfcd4e975ca4615c402c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2126171333}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1686426400 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 190480246769481809, guid: 4e5195cbfa25adf459fda9db0a42d371,
@@ -802,6 +808,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1993817915763161494, guid: 4e5195cbfa25adf459fda9db0a42d371,
+        type: 3}
+      propertyPath: PlayButton
+      value: 
+      objectReference: {fileID: 1292739848}
+    - target: {fileID: 1993817915763161494, guid: 4e5195cbfa25adf459fda9db0a42d371,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1833625489}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e5195cbfa25adf459fda9db0a42d371, type: 3}
 --- !u!1001 &2126171333
@@ -815,6 +831,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2085277584485513415, guid: a69005bbf52bfcd4e975ca4615c402c2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2085277584485513434, guid: a69005bbf52bfcd4e975ca4615c402c2,
         type: 3}
@@ -1045,6 +1066,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2503370350212916855, guid: a69005bbf52bfcd4e975ca4615c402c2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8477889072066928620, guid: a69005bbf52bfcd4e975ca4615c402c2,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -421899125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8477889072066928620, guid: a69005bbf52bfcd4e975ca4615c402c2,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a69005bbf52bfcd4e975ca4615c402c2, type: 3}

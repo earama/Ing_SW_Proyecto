@@ -49,13 +49,19 @@ public class PauseMenu : MonoBehaviour
             
             if (touch.phase == TouchPhase.Ended && !gameIsPaused)
             {
+                var truePlayerPos = Camera.main.WorldToScreenPoint(Player.GetComponent<Rigidbody2D>().position);
+                //playerPosition.Set(truePlayerPos.x, truePlayerPos.y);
                 playerPosition.Set(touch.position.x, touch.position.y);
-                PlayButton.transform.position.Set(playerPosition.x,playerPosition.y,PlayButton.transform.position.z);
-                PlayButton.GetComponent<RectTransform>().anchoredPosition = mappingJuegoACanvas(playerPosition);
+                var touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+                Player.GetComponent<Rigidbody2D>().position = touchPosition;
+                //playerPosition.Set(Player.GetComponent<Rigidbody2D>().position.x, Player.GetComponent<Rigidbody2D>().position.y);
+                //PlayButton.transform.position.Set(playerPosition.x,playerPosition.y,PlayButton.transform.position.z);
+                //PlayButton.GetComponent<RectTransform>().anchoredPosition = mappingJuegoACanvas(playerPosition);
                 //PlayButton.transform.position.Set(mappingJuegoACanvas(playerPosition).x,mappingJuegoACanvas(playerPosition).y,PlayButton.transform.position.z);
+                //PlayButton.GetComponent<RectTransform>().anchoredPosition = mappingJuegoACanvas(truePlayerPos);
                 if (!gameIsPaused)
                 {
-                    Pause();
+                    StartCoroutine(Pause());
                 }
             }
             else if(touch.phase == TouchPhase.Began)
@@ -79,6 +85,7 @@ public class PauseMenu : MonoBehaviour
     }
     void Resume()
     {
+        PlayButton.SetActive(false);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
@@ -93,17 +100,20 @@ public class PauseMenu : MonoBehaviour
             MenuButton.transform.position = pos2;
         }
     }
-    void Pause()
+    IEnumerator Pause()
     {
+        yield return 0; // Wait 1 frame to pause
+        yield return 0; // Wait 1 frame to pause
+        PlayButton.SetActive(true);
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
         Vector3 pos1 = VolumeButton.transform.position;
         Vector3 pos2 = MenuButton.transform.position;
         RectTransform objectRectTransform = gameObject.GetComponent<RectTransform> ();
-        if(Input.touchCount > 0)
-        {
-            if(Input.GetTouch(0).position.y >=  Screen.height/2 )
+        //if(Input.touchCount > 0)
+        //{
+            if(playerPosition.y >=  Screen.height/2 )
             {
                 uiMovido = true;
                 pos1.y =(pos1.y*-1);
@@ -111,7 +121,7 @@ public class PauseMenu : MonoBehaviour
                 pos2.y = (pos2.y*-1);
                 MenuButton.transform.position = pos2;
             }
-        }
+        //}
     }
 
     public void Menu()
