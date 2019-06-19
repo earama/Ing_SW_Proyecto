@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && Time.timeScale != 0f)
         {
             Touch touch = Input.GetTouch(0);
             touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
