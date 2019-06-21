@@ -25,6 +25,7 @@ public class PauseMenu : MonoBehaviour
     private Vector3 screenBounds;
 
     private Vector2 lastPosBeforeCheat;
+    private bool cheated;
 
     void Start() 
     {
@@ -40,6 +41,7 @@ public class PauseMenu : MonoBehaviour
         master.SetFloat("volumen", PlayerPrefs.GetFloat("volumeValue", 0));
         Debug.Log("WOLODSAA");
         chooseVolumeImage();
+        cheated = false;
     }
 
     void Awake()
@@ -58,9 +60,7 @@ public class PauseMenu : MonoBehaviour
                     //otherPause(Input.GetTouch(0));
                     lastPosBeforeCheat = Player.GetComponent<Rigidbody2D>().position;
                     cheaterMenu();
-                    
-                    
-
+                    cheated = true;
             } else {
                 Touch touch = Input.GetTouch(0);
                 var touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
@@ -78,7 +78,7 @@ public class PauseMenu : MonoBehaviour
                     //PlayButton.GetComponent<RectTransform>().anchoredPosition = mappingJuegoACanvas(truePlayerPos);
                     if (!gameIsPaused)
                     {
-                        StartCoroutine(Pause(touch));
+                        Pause(touch);
                     }
                 }
                 else if(touch.phase == TouchPhase.Began)
@@ -123,10 +123,16 @@ public class PauseMenu : MonoBehaviour
             MenuButton.transform.position = pos2;
         }
     }
-    IEnumerator Pause(Touch touch)
+    void Pause(Touch touch)
     {
-        yield return 0; // Wait 1 frame to pause
-        yield return 0; // Wait 1 frame to pause
+        //yield return 0; // Wait 1 frame to pause
+        //yield return 0; // Wait 1 frame to pause
+        if(!cheated){
+            Player.GetComponent<Rigidbody2D>().position = Camera.main.ScreenToWorldPoint(touch.position);
+            Player.transform.position = Camera.main.ScreenToWorldPoint(touch.position);
+        } else {
+            cheated = false;
+        }
         PlayButton.SetActive(true);
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
@@ -148,6 +154,7 @@ public class PauseMenu : MonoBehaviour
                 MenuButton.transform.position = pos2;
             }
         //}
+        //yield return 0; // Wait 1 frame to pause
     }
 
     public void Menu()
@@ -230,6 +237,7 @@ public class PauseMenu : MonoBehaviour
             Player.GetComponent<Rigidbody2D>().position = lastPosBeforeCheat;
             Player.transform.position = lastPosBeforeCheat;
             //yield return 0;
+            
         }    
     }
 
