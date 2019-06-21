@@ -225,7 +225,7 @@ public class PauseMenu : MonoBehaviour
         if(Input.touchCount <= 1)
         {
             cheaterMenuGO.SetActive(false);
-            Time.timeScale = 1f; // Stop time
+            //Time.timeScale = 1f; // restart time
             
             Player.GetComponent<Rigidbody2D>().position = lastPosBeforeCheat;
             Player.transform.position = lastPosBeforeCheat;
