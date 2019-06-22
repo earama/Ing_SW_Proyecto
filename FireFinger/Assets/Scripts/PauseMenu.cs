@@ -16,6 +16,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject GameOverWindow;
     public GameObject Player;
     public GameObject cheaterMenuGO;
+    public GameObject tutorialTxt1;
+    public GameObject tutorialTxt2;
 
     public AudioMixer master;
 
@@ -32,6 +34,8 @@ public class PauseMenu : MonoBehaviour
         RectTransform objectRectTransform = gameObject.GetComponent<RectTransform> ();
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         GameOverWindow.SetActive(false);
+        tutorialTxt1.SetActive(true);
+        tutorialTxt2.SetActive(true);
         // First Pause
         PlayButton.SetActive(true);
         pauseMenuUI.SetActive(true);
@@ -68,7 +72,7 @@ public class PauseMenu : MonoBehaviour
                 var playerRBPos = Player.GetComponent<Rigidbody2D>().position;
                 if (touch.phase == TouchPhase.Ended && !gameIsPaused)
                 {
-                    var truePlayerPos = Camera.main.WorldToScreenPoint(Player.GetComponent<Rigidbody2D>().position);
+                    //var truePlayerPos = Camera.main.WorldToScreenPoint(Player.GetComponent<Rigidbody2D>().position);
                     //playerPosition.Set(truePlayerPos.x, truePlayerPos.y);
                     //playerPosition.Set(touch.position.x, touch.position.y);
                     //Player.GetComponent<Rigidbody2D>().position = touchPosition;
@@ -77,10 +81,18 @@ public class PauseMenu : MonoBehaviour
                     //PlayButton.GetComponent<RectTransform>().anchoredPosition = mappingJuegoACanvas(playerPosition);
                     //PlayButton.transform.position.Set(mappingJuegoACanvas(playerPosition).x,mappingJuegoACanvas(playerPosition).y,PlayButton.transform.position.z);
                     //PlayButton.GetComponent<RectTransform>().anchoredPosition = mappingJuegoACanvas(truePlayerPos);
-                    if (!gameIsPaused)
+                    var errorMargin = 0.8;
+                    var distanceX = Mathf.Abs(touchPosition.x);
+                    var distanceY = Mathf.Abs(touchPosition.y);
+                    // Check if player has left the middle of the screen (0,0)
+                    // If so, remove tutorial texts
+                    if(distanceX > errorMargin || distanceY > errorMargin)
                     {
-                        Pause(touch);
+                        tutorialTxt1.SetActive(false);
+                        tutorialTxt2.SetActive(false);
                     }
+                    Pause(touch);
+
                 }
                 else if(touch.phase == TouchPhase.Began)
                 {
@@ -126,8 +138,7 @@ public class PauseMenu : MonoBehaviour
     }
     void Pause(Touch touch)
     {
-        //yield return 0; // Wait 1 frame to pause
-        //yield return 0; // Wait 1 frame to pause
+
         if(!cheated){
             Player.GetComponent<Rigidbody2D>().position = Camera.main.ScreenToWorldPoint(touch.position);
             Player.transform.position = Camera.main.ScreenToWorldPoint(touch.position);
