@@ -18,6 +18,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject cheaterMenuGO;
     public GameObject tutorialTxt1;
     public GameObject tutorialTxt2;
+    public GameObject BackToMMWarnWindow;
 
     public AudioMixer master;
 
@@ -167,6 +168,12 @@ public class PauseMenu : MonoBehaviour
             }
         //}
         //yield return 0; // Wait 1 frame to pause
+    }
+
+    public void TriggerBackToMMWarning(bool activate)
+    {
+        Player.SetActive(!activate);
+        BackToMMWarnWindow.SetActive(activate);
     }
 
     public void Menu()
