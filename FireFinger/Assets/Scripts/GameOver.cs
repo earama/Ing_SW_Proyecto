@@ -14,14 +14,13 @@ public class GameOver : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.SetActive(false);
-        sceneName = SceneManager.GetActiveScene().name;
         
     }
 
 
     void OnEnable()
     {
+        sceneName = SceneManager.GetActiveScene().name;
         finalScore.text = scoreText.text;
         string highScoreKey = "Scene"+sceneName+"HighScore0";
         highScore.text = PlayerPrefs.GetFloat(highScoreKey,0).ToString("0");

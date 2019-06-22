@@ -31,6 +31,7 @@ public class PauseMenu : MonoBehaviour
     {
         RectTransform objectRectTransform = gameObject.GetComponent<RectTransform> ();
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        GameOverWindow.SetActive(false);
         // First Pause
         PlayButton.SetActive(true);
         pauseMenuUI.SetActive(true);
