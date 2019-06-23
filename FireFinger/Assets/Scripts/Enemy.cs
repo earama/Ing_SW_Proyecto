@@ -32,7 +32,6 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject); //enemy game object gets deleted
         FindObjectOfType<AudioManager>().Play("EnemyDeath"); //enemy death's sound effect
         am.Shake();
-        am.Ripple();
     }
 
     void OnTriggerEnter2D(Collider2D other) 

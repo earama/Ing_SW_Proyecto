@@ -417,7 +417,6 @@ GameObject:
   - component: {fileID: 1267490190}
   - component: {fileID: 1267490192}
   - component: {fileID: 1267490193}
-  - component: {fileID: 1267490194}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -524,21 +523,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1267490194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1267490188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8609a9f6ad85955418ea0cc16513fdac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RippleMaterial: {fileID: 2100000, guid: 78f36ed2c282c6c44b9fb0139130e6d9, type: 2}
-  MaxAmount: 50
-  Friction: 0.9
 --- !u!1 &1292739848 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2503370350212916855, guid: a69005bbf52bfcd4e975ca4615c402c2,
@@ -887,11 +871,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2503370350212916855, guid: a69005bbf52bfcd4e975ca4615c402c2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2085277584485513434, guid: a69005bbf52bfcd4e975ca4615c402c2,
         type: 3}
       propertyPath: m_RootOrder
@@ -1106,6 +1085,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Parameters.widthMultiplier
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2503370350212916855, guid: a69005bbf52bfcd4e975ca4615c402c2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 376117633785576434, guid: a69005bbf52bfcd4e975ca4615c402c2,
         type: 3}
