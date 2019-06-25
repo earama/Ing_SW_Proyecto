@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour
     public float sps; // score per second
     public int leaderboardSize = 1; // number of high scores to record
     private string sceneName;
+    private int positionOfNewScore;
 
     void Start(){
         sceneName = SceneManager.GetActiveScene().name;
@@ -25,6 +26,7 @@ public class ScoreManager : MonoBehaviour
 
     public void UpdateHighScores()
     {
+        positionOfNewScore = -1;
         float score = scoreCount;
         Debug.Log("Score: "+scoreCount.ToString("0"));
         for(int i = 0; i < leaderboardSize; i++) {
@@ -40,11 +42,22 @@ public class ScoreManager : MonoBehaviour
                 // Place temp (previous highScores[i]) for rearrangement on next iteration
                 score = temp;
 
+                // Get position of new high score
+                // Required for playername index
+                if(positionOfNewScore == -1) {
+                    positionOfNewScore = i;
+                }
+
                 if(i == 0) {
                     NewRecord();
                 }
             }
         }
+    }
+
+    public int GetPositionOfNewScore()
+    {
+        return positionOfNewScore;
     }
 
     public void NewRecord()
