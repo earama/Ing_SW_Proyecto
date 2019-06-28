@@ -45,7 +45,7 @@ public class PauseMenu : MonoBehaviour
         //playerPosition.Set(objectRectTransform.rect.width/2, objectRectTransform.rect.height/2);
         playerPosition.Set(Screen.width/2, Screen.height/2);
         master.SetFloat("volumen", PlayerPrefs.GetFloat("volumeValue", 0));
-        Debug.Log("WOLODSAA");
+        //Debug.Log("WOLODSAA");
         chooseVolumeImage();
         cheated = false;
     }
@@ -99,8 +99,8 @@ public class PauseMenu : MonoBehaviour
                 {
                     if (gameIsPaused)
                     {
-                        Debug.Log("touch position: " + touchPosition.ToString());
-                        Debug.Log("player position: " + playerRBPos.ToString());
+                        //Debug.Log("touch position: " + touchPosition.ToString());
+                        //Debug.Log("player position: " + playerRBPos.ToString());
                         var errorMargin = 0.5;
                         var distanceX = Mathf.Abs(playerRBPos.x - touchPosition.x);
                         var distanceY = Mathf.Abs(playerRBPos.y - touchPosition.y);
