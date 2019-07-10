@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
         Instantiate (deathEffect, transform.position, Quaternion.identity); //death effect gets shown
         Destroy(gameObject); //enemy game object gets deleted
         FindObjectOfType<AudioManager>().Play("EnemyDeath"); //enemy death's sound effect
-        am.Shake();
+        //am.Shake();
     }
 
     void OnTriggerEnter2D(Collider2D other) 

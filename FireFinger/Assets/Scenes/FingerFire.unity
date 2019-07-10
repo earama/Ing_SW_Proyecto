@@ -417,8 +417,8 @@ MonoBehaviour:
   sm: {fileID: 815401053}
   es: {fileID: 1267490192}
   diffCheckpoints:
-  - 200
   - 500
+  - 1000
 --- !u!4 &788268310
 Transform:
   m_ObjectHideFlags: 0

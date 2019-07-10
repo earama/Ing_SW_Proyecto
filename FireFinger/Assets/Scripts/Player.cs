@@ -14,9 +14,11 @@ public class Player : MonoBehaviour
     private List<GameObject> lives;
     private Vector2 screenBounds; // screen limits
     private ScoreManager sm;
+    private AnimationManager am;
     // Start is called before the first frame update
     void Start()
     {
+        am = GameObject.FindGameObjectWithTag("AnimationManager").GetComponent<AnimationManager>();
         //set screen limits
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
 
@@ -48,6 +50,7 @@ public class Player : MonoBehaviour
 
     public void TakeHit(int hits) //enemy collides with projectile
     {
+        am.Shake();
         if (hits > lives.Count)
         {
             hits = lives.Count;
